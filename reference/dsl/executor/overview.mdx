@@ -1,0 +1,137 @@
+---
+title: "Executor Overview"
+description: "Execution engine components for processing queries and managing different execution modes including in-memory, interactive, and REST executors"
+icon: play
+---
+
+The Executor module provides the execution engine for processing queries and managing the computational workflow of Superlinked applications across different execution modes.
+
+## Core Executor Components
+
+Foundation components for query execution:
+
+<CardGroup cols={2}>
+  <Card 
+    title="Executor" 
+    icon="play" 
+    href="/reference/dsl/executor/executor"
+  >
+    Base executor class and core execution functionality
+  </Card>
+  <Card 
+    title="Exception" 
+    icon="triangle-exclamation" 
+    href="/reference/dsl/executor/exception"
+  >
+    Exception handling for executor operations
+  </Card>
+</CardGroup>
+
+## Execution Modes
+
+Choose the appropriate executor type for your deployment needs:
+
+<CardGroup cols={2}>
+  <Card 
+    title="In Memory Executor" 
+    icon="memory" 
+    href="/reference/dsl/executor/in_memory/in_memory_executor"
+  >
+    Fast in-memory execution for development and testing
+  </Card>
+  <Card 
+    title="Interactive Executor" 
+    icon="terminal" 
+    href="/reference/dsl/executor/interactive/interactive_executor"
+  >
+    Interactive execution for experimentation and prototyping
+  </Card>
+  <Card 
+    title="Query Executor" 
+    icon="magnifying-glass" 
+    href="/reference/dsl/executor/query/query_executor"
+  >
+    Specialized query execution and processing
+  </Card>
+  <Card 
+    title="REST Executor" 
+    icon="globe" 
+    href="/reference/dsl/executor/rest/rest_executor"
+  >
+    REST API-based execution for web services
+  </Card>
+</CardGroup>
+
+## REST Execution Components
+
+Advanced REST execution capabilities:
+
+<CardGroup cols={2}>
+  <Card 
+    title="REST Configuration" 
+    icon="gear" 
+    href="/reference/dsl/executor/rest/rest_configuration"
+  >
+    Configuration management for REST executors
+  </Card>
+  <Card 
+    title="REST Descriptor" 
+    icon="file-text" 
+    href="/reference/dsl/executor/rest/rest_descriptor"
+  >
+    REST API descriptor and metadata management
+  </Card>
+  <Card 
+    title="REST Handler" 
+    icon="hand" 
+    href="/reference/dsl/executor/rest/rest_handler"
+  >
+    Request handling and response processing for REST APIs
+  </Card>
+</CardGroup>
+
+## Key Features
+
+Executor components provide:
+
+- **Multiple Execution Modes**: Support for various deployment and execution patterns
+- **Performance Optimization**: Choose the right executor for your performance needs
+- **Scalability**: From local development to distributed production execution
+- **API Integration**: Built-in REST API execution capabilities
+- **Error Handling**: Robust exception management during execution
+
+<Info>
+Different executor types are optimized for specific execution scenarios. In-memory executors provide fast local execution, while REST executors enable web service deployment.
+</Info>
+
+## Executor Selection Guide
+
+Choose the right executor type for your use case:
+
+- **In Memory Executor**: Best for development, testing, and high-performance local execution
+- **Interactive Executor**: Ideal for experimentation, prototyping, and iterative development
+- **Query Executor**: Specialized for query-focused applications and search services
+- **REST Executor**: Perfect for web applications and API-based services
+
+<Tip>
+Start with In Memory Executor during development for fast iteration, then transition to REST Executor for production web service deployment.
+</Tip>
+
+## Execution Workflow
+
+Executors handle the complete processing pipeline:
+
+1. **Query Processing**: Parse and validate incoming queries
+2. **Vector Computation**: Execute vector operations and similarity calculations
+3. **Result Generation**: Compile and format query results
+4. **Response Delivery**: Return results through the appropriate interface
+5. **Error Management**: Handle exceptions and provide meaningful error responses
+
+## Performance Considerations
+
+Executors optimize for:
+
+- **Computation Speed**: Efficient vector operations and similarity calculations
+- **Memory Management**: Optimal memory usage during query execution
+- **Concurrency**: Support for parallel query processing
+- **Resource Utilization**: Balanced use of CPU and memory resources 

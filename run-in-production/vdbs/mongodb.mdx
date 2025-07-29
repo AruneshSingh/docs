@@ -1,10 +1,7 @@
 ---
 title: "MongoDB"
+description: "This document provides clear steps on how to use and integrate MongoDB with Superlinked."
 ---
-
-# MongoDB
-
-This document provides clear steps on how to use and integrate MongoDB with Superlinked.
 
 ## Configuring your existing managed MongoDB
 
@@ -19,6 +16,7 @@ Due to the reasons above, an API key with the `Project Data Access Admin` role i
 ## Modifications in your configuration
 
 To integrate MongoDB, you need to add the `MongoDBVectorDatabase` class and include it in the executor. Here’s how you can do it:
+
 ```python
 from superlinked import framework as sl
 
@@ -41,6 +39,7 @@ Alternatively, click on your project on Atlas and in the URL you will find the i
 > Extra parameters: extra params can be passed in to the PyMongo client called MongoClient. Please read the [documentation](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) for more information.
 
 Once you have configured the `MongoDBVectorDatabase`, set it as your `vector_database` in the `RestExecutor`:
+
 ```python
 ...
 executor = sl.RestExecutor(
@@ -56,26 +55,53 @@ executor = sl.RestExecutor(
 
 A step-by-step guide to set up a database, a user, and the required API key.
 
-### Creating the Database:
-1. Navigate to [MongoDB Atlas](https://cloud.mongodb.com/) and sign in.
-2. Create your cluster. The cluster name will be needed for the configuration mentioned above. You can choose any other options as they do not impact Superlinked's functionality.
-3. Click on the `Database` option in the left menu column.
-4. Once the cluster is created, click on its name and then go to the collections tab or click on the `Browse Collections` button.
-5. Click on `Add My Own Data` and provide a name for your database and collection. The database name will be required for the configuration above. The collection name is not critical and can be deleted later as Superlinked will create its own.
+<Steps>
+<Step title="Set up MongoDB Atlas account and create cluster">
+  Navigate to [MongoDB Atlas](https://cloud.mongodb.com/) and sign in.
+  
+  Create your cluster. The cluster name will be needed for the configuration mentioned above. You can choose any other options as they do not impact Superlinked's functionality.
+  
+  <Check>
+  Your cluster should be visible in the MongoDB Atlas dashboard.
+  </Check>
+</Step>
 
-### Creating a Database User and add your IP:
-1. Click on the `Database` option on the left.
-2. Click the `Connect` button next to your cluster's name.
-3. In the pop-up window:
-   1. Click on the `Allow access from Anywhere` or select the `Add a different IP address` and insert your VM's or local IP address.
-   2. Enter the username and password for your user. These credentials will be needed for the configuration above.
+<Step title="Create database and collection">
+  Click on the `Database` option in the left menu column. Once the cluster is created, click on its name and then go to the collections tab or click on the `Browse Collections` button. 
+  
+  Click on `Add My Own Data` and provide a name for your database and collection. The database name will be required for the configuration above.
+  <Note>
+    The collection name is not critical and can be deleted later as Superlinked
+    will create its own.
+  </Note>
+</Step>
 
-### Creating the API Key:
-1. Click on the `Access Manager` selector at the top left corner next to your organization selector and select your project.
-2. Go to the `API Keys` tab.
-3. Provide a name for the API key and select the `Project Data Access Admin` role in the `Project Permissions` selector.
-4. Copy the `Private Key` as it will not be accessible again. The `Public key` and `Private key` will be your `admin_api_user` and `admin_api_password` in your connection in this order.
+<Step title="Configure database access">
+  Click on the `Database` option on the left. Click the `Connect` button next to your cluster's name. 
+  
+  In the pop-up window: 
+  - Click on the `Allow access from Anywhere` or select the `Add a different IP address` and insert your VM's or
+  local IP address. 
+  - Enter the username and password for your user. These credentials will be needed for the configuration above.
 
+  <Check>
+    You should see a confirmation that your IP address has been added to the
+    access list.
+  </Check>
+</Step>
+
+<Step title="Create API key for Superlinked">
+  Click on the `Access Manager` selector at the top left corner next to your organization selector and select your project.
+  
+  Go to the `API Keys` tab.
+  
+  Provide a name for the API key and select the `Project Data Access Admin` role in the `Project Permissions` selector.
+  
+  <Warning>
+  Copy the `Private Key` as it will not be accessible again. The `Public key` and `Private key` will be your `admin_api_user` and `admin_api_password` in your connection in this order.
+  </Warning>
+</Step>
+</Steps>
 
 ## Example app with Mongo DB
 

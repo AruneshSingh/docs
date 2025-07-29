@@ -19,9 +19,15 @@ _Note: The following documentation uses Unix-based terminal commands. Compatibil
 
 To start the application follow the steps below:
 
-1. **Create the Superlinked app folder**: Create a directory to store your Superlinked configuration files by running `mkdir superlinked_app`. For a minimal working example, copy the [app.py](https://github.com/superlinked/superlinked/blob/main/docs/run-in-production/example/app.py) into your newly created `superlinked_app` directory. For more advanced use cases, please read the next section below.
+<Steps>
+<Step title="Create the Superlinked app folder">
+  Create a directory to store your Superlinked configuration files by running `mkdir superlinked_app`. For a minimal working example, copy the [app.py](https://github.com/superlinked/superlinked/blob/main/docs/run-in-production/example/app.py) into your newly created `superlinked_app` directory. For more advanced use cases, please read the next section below.
+</Step>
 
-2. **Start the Superlinked server**: To start the server run the `python -m superlinked.server` command.
+<Step title="Start the Superlinked server">
+  To start the server run the `python -m superlinked.server` command.
+</Step>
+</Steps>
 
 By default, this will start the server on port 8080 (configurable via the `SERVER_PORT` environment variable) and expose the API endpoints for use. You can verify the server is running by visiting http://localhost:8080/docs in your browser.
 
@@ -29,10 +35,15 @@ By default, this will start the server on port 8080 (configurable via the `SERVE
 
 Once your server is running, you'll need to configure and integrate your application. There are two main aspects to focus on:
 
-- [Application Configuration Guide](configuring-your-app.md) - Learn how to structure and customize your application
-- [API Integration Guide](interacting-with-app-via-api.md) - Understand how to interact with your application through the REST API
+<CardGroup cols={2}>
+<Card title="Application Configuration Guide" href="configuring-your-app">
+  Learn how to structure and customize your application
+</Card>
 
-Click on either link above for detailed documentation on each aspect.
+<Card title="API Integration Guide" href="interacting-with-app-via-api">
+  Understand how to interact with your application through the REST API
+</Card>
+</CardGroup>
 
 ## Support
 

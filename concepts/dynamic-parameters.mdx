@@ -20,17 +20,15 @@ Let’s walk through how you can use Superlinked to achieve quality retrieval, b
 
 **Follow along in these Colabs.**
 
-<iframe
-  src="https://colab.research.google.com/github/superlinked/superlinked/blob/main/notebook/feature/query_time_weights.ipynb"
-  width="100%"
-  height="500px"
-></iframe>
+<CardGroup cols={2}>
+<Card title="Query Time Weights" icon="play" href="https://colab.research.google.com/github/superlinked/superlinked/blob/main/notebook/feature/query_time_weights.ipynb">
+Explore how to set weights at query definition to experiment and optimize without re-embedding your dataset.
+</Card>
 
-<iframe
-  src="https://colab.research.google.com/github/superlinked/superlinked/blob/main/notebook/feature/dynamic_parameters.ipynb"
-  width="100%"
-  height="500px"
-></iframe>
+<Card title="Dynamic Parameters" icon="sliders" href="https://colab.research.google.com/github/superlinked/superlinked/blob/main/notebook/feature/dynamic_parameters.ipynb">
+Learn how to use placeholder parameters for fine-tuning weights at query execution time.
+</Card>
+</CardGroup>
 
 ## Two ways to weight the query - definition
 
@@ -92,7 +90,8 @@ source.put(
 
 Now that you have your system set up, you define your queries, a `body_query` that weights text similarity twice as much as likes, and another `like_query` that weights likes twice as much as text similarity.
 
-```python
+<CodeGroup>
+```python Body Query - Text Focused
 body_query = (
     Query(
         paragraph_index,
@@ -105,7 +104,9 @@ body_query = (
     .similar(body_space.text, "What makes the AI industry go forward?")
     .select_all()
 )
+```
 
+```python Like Query - Popularity Focused
 like_query = (
     Query(
         paragraph_index,
@@ -119,29 +120,40 @@ like_query = (
     .select_all()
 )
 ```
+</CodeGroup>
 
-Running the `body_query` …
+**Query Execution Examples:**
 
-```python
+<CodeGroup>
+```python Body Query Execution
 body_result = app.query(body_query)
 sl.PandasConverter.to_pandas(body_result)
+
+# Result: Text similarity prioritized
+# Growing computation power enables advancements in AI. | 10 | paragraph-2
+# Glorious animals live in the wilderness.              | 75 | paragraph-1
 ```
 
-…produces the following result:
+```python Like Query Execution  
+like_result = app.query(like_query)
+sl.PandasConverter.to_pandas(like_result)
 
+# Result: Like count prioritized  
+# Glorious animals live in the wilderness.              | 75 | paragraph-1
+# Growing computation power enables advancements in AI. | 10 | paragraph-2
+```
+</CodeGroup>
+
+**Results comparison:**
+
+*Body Query Results (text similarity prioritized):*
 |     | body                                                  | like_count | id          |
 | --- | ----------------------------------------------------- | ---------- | ----------- |
 | 0   | Growing computation power enables advancements in AI. | 10         | paragraph-2 |
 | 1   | Glorious animals live in the wilderness.              | 75         | paragraph-1 |
 
-While running the `like_query` …
+*Like Query Results (like count prioritized):*
 
-```python
-like_result = app.query(like_query)
-sl.PandasConverter.to_pandas(like_result)
-```
-
-ranks our results oppositely:
 
 |     | body                                                  | like_count | id          |
 | --- | ----------------------------------------------------- | ---------- | ----------- |
@@ -177,9 +189,10 @@ query = (
 ```
 
 It’s time to query!
-You now fill in your placeholder Params with weights, and generate results. To see how different query execution weights alter results, you run two queries. The first, `body_based_result`, queries by weighting the `body_space` at 1, and the `like_space` at 0, favoring the textually similar paragraph:
+You now fill in your placeholder Params with weights, and generate results. To see how different query execution weights alter results, you run two queries with different weightings:
 
-```python
+<CodeGroup>
+```python Text-Focused Dynamic Query
 body_based_result = app.query(
     query,
     query_text="How computation power changed the course of AI?",
@@ -189,9 +202,7 @@ body_based_result = app.query(
 sl.PandasConverter.to_pandas(body_based_result)
 ```
 
-Your second query `like_based_result` reverses this weighting, and favors the most liked paragraph.
-
-```python
+```python Popularity-Focused Dynamic Query
 like_based_result = app.query(
     query,
     query_text="How computation power changed the course of AI?",
@@ -200,6 +211,7 @@ like_based_result = app.query(
 )
 sl.PandasConverter.to_pandas(like_based_result)
 ```
+</CodeGroup>
 
 ## In sum
 

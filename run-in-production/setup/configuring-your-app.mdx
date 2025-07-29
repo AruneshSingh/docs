@@ -16,7 +16,7 @@ For advanced examples on constructing spaces and queries, please explore the [Su
 
 > Note: The primary aim of this document is to guide you on how to operate the Superlinked system with your preferred configuration, rather than explaining the inner workings of the Superlinked components. For a deeper understanding of the components, please refer to the notebooks mentioned above.
 
-## Understanding the building blocks of the application
+## 1. Understanding the building blocks of the application
 
 A functional application is structured around three core components:
 
@@ -24,30 +24,30 @@ A functional application is structured around three core components:
 - `query.py` - Specifies the queries
 - `api.py` - Configures the executor that integrates the aforementioned components and other crucial configurations
 
-### index.py
-
+<Tabs>
+<Tab title="index.py" icon="python">
 ```python
 from superlinked import framework as sl
 
 class YourSchema(sl.Schema):
-    id: sl.IdField
-    attribute: sl.String
-
+id: sl.IdField
+attribute: sl.String
 
 your_schema = YourSchema()
 
-model_name = "<your model name goes here>"  # Ensure that you replace this with a valid model name!
+model_name = "<your model name goes here>" # Ensure that you replace this with a valid model name!
 text_space = sl.TextSimilaritySpace(text=your_schema.attribute, model=model_name)
 
 index = sl.Index(text_space)
-```
+
+````
 
 In this file, a schema is defined to structure your input data. Additionally, a space is specified, which must include at least one attribute from your schema, and an index is created to aggregate and integrate these spaces.
 
 > It is crucial to understand that all definitions in this file determine the vectors of your elements. Any modifications to this file, such as adding a new space or altering the schema, will render the previously ingested data invalid, necessitating re-ingestion.
+</Tab>
 
-### query.py
-
+<Tab title="query.py" icon="python">
 ```python
 from superlinked import framework as sl
 
@@ -62,12 +62,14 @@ query = (
     )
     .select_all()
 )
-```
+
+````
 
 In the `query.py` file, you should define your queries. These queries are designed to search within your data by configuring weights, limits, radius, and other critical parameters to optimize the retrieval of desired results.
 
-### api.py
+</Tab>
 
+<Tab title="api.py" icon="python">
 ```python
 from superlinked import framework as sl
 
@@ -78,14 +80,15 @@ your_source: RestSource = sl.RestSource(your_schema)
 your_query = sl.RestQuery(sl.RestDescriptor("query"), query)
 
 executor = sl.RestExecutor(
-    sources=[your_source],
-    indices=[index],
-    queries=[your_query],
-    vector_database=sl.InMemoryVectorDatabase(),
+sources=[your_source],
+indices=[index],
+queries=[your_query],
+vector_database=sl.InMemoryVectorDatabase(),
 )
 
 sl.SuperlinkedRegistry.register(executor)
-```
+
+````
 
 In this document, you set up your source, which acts as the entry point for your schema into the application. The `RestSource` can use a `RestDescriptor` to specify the path for adding data to your system. The `RestQuery` function wraps your query in a `RestDescriptor`, giving your query a name that makes it callable through the REST API. In the example shown, the path is set to `/api/v1/search/query`. Here, you assign a name to the last part of the path, assuming you stick with the default settings. [More detailed API info](#customize-your-api)
 
@@ -94,8 +97,10 @@ The executor acts as the heart of your application, needing all the necessary in
 You can find more detailed information and examples of various features in the [Superlinked feature notebooks](https://github.com/superlinked/superlinked/tree/main/notebook/feature). The [basic_building_blocks.ipynb](https://github.com/superlinked/superlinked/blob/main/notebook/feature/basic_building_blocks.ipynb) notebook provides a comprehensive guide on the basic structure and how to use it, while the other notebooks cover various features of the Superlinked library.
 
 In this deployment setup, you are not required to define any computations as you would in the [basic_building_blocks.ipynb](https://github.com/superlinked/superlinked/blob/main/notebook/feature/basic_building_blocks.ipynb) notebook. Instead, your focus will be on defining the schema, the text similarity space, the index, the query, the REST source, and the executor.
+</Tab>
+</Tabs>
 
-## Configuring the data loader
+## 2. Configuring the data loader
 
 The system has a feature to load data from file(s) either from local or remote.
 
@@ -126,14 +131,15 @@ executor = sl.RestExecutor(
     queries=[sl.RestQuery(sl.RestDescriptor("query"), query)],
     vector_database=sl.InMemoryVectorDatabase(),
 )
-```
+
+````
 
 > Name of your data loader: The `name` parameter in `DataLoaderConfig` is optional. By default, it adopts the snake_case version of your schema's name used in `DataLoaderSource`. If you have multiple data loaders for the same schema or prefer a different name, simply set the `name` parameter accordingly.
 > Note that the name will always be converted to snake_case. To see the configured data loaders in your system, refer to the [API documentation](interacting-with-app-via-api.md#see-available-data-loaders).
 
 The data loader is now configured but **it only runs if you send a request to the data loader endpoint!** To see how to trigger it, check the API documentation [here](interacting-with-app-via-api.md#trigger-the-data-load)
 
-## Optional steps
+## 3. Optional steps
 
 ### Schema to column mappings
 

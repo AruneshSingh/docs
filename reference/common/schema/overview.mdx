@@ -1,0 +1,75 @@
+---
+title: "Schema Overview"
+description: "Schema definition and validation components for structured data modeling in Superlinked"
+icon: database
+---
+
+The Schema module provides the foundational components for defining data structures and validating data integrity within the Superlinked framework.
+
+## Schema Components
+
+Define and manage your data structures with robust schema components:
+
+<CardGroup cols={2}>
+  <Card 
+    title="Schema" 
+    icon="database" 
+    href="/reference/common/schema/schema"
+  >
+    Core schema definition and management functionality
+  </Card>
+  <Card 
+    title="Schema Object" 
+    icon="cube" 
+    href="/reference/common/schema/schema_object"
+  >
+    Individual schema object definitions and properties
+  </Card>
+  <Card 
+    title="Event Schema" 
+    icon="calendar-clock" 
+    href="/reference/common/schema/event_schema"
+  >
+    Specialized schemas for event-based data structures
+  </Card>
+  <Card 
+    title="Event Schema Object" 
+    icon="calendar-days" 
+    href="/reference/common/schema/event_schema_object"
+  >
+    Event-specific schema object definitions
+  </Card>
+</CardGroup>
+
+<CardGroup cols={1}>
+  <Card 
+    title="ID Schema Object" 
+    icon="fingerprint" 
+    href="/reference/common/schema/id_schema_object"
+  >
+    Specialized schema objects for identifier management
+  </Card>
+</CardGroup>
+
+## Key Features
+
+Schema components provide:
+
+- **Type Safety**: Strong typing and validation for all data fields
+- **Flexibility**: Support for various data types and structures
+- **Event Handling**: Specialized schemas for time-based event data
+- **Validation**: Automatic data validation and error handling
+- **Consistency**: Ensures data consistency across the entire pipeline
+
+<Tip>
+Schema definitions serve as the foundation for all data processing operations in Superlinked. Properly defined schemas ensure optimal performance and data integrity.
+</Tip>
+
+## Usage Patterns
+
+Schemas are typically used to:
+
+1. **Define Data Structure**: Establish the expected format of your input data
+2. **Validate Input**: Ensure incoming data meets the defined requirements
+3. **Enable Processing**: Allow downstream components to process data efficiently
+4. **Track Changes**: Monitor data evolution over time with event schemas 

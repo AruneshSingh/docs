@@ -1,10 +1,7 @@
 ---
 title: "TopK"
+description: "This document provides clear steps on how to use and integrate TopK with Superlinked."
 ---
-
-# TopK
-
-This document provides clear steps on how to use and integrate TopK with Superlinked.
 
 ## Configuring your existing TopK account
 
@@ -42,17 +39,34 @@ executor = sl.RestExecutor(
 
 To set up your TopK account and obtain the necessary credentials for Superlinked integration, follow these steps:
 
-1. **Go to the TopK Console**
-   Navigate to [TopK Console](https://console.topk.io) and create an account or sign in to your existing account.
+<Steps>
+<Step title="Go to the TopK Console">
+  Navigate to [TopK Console](https://console.topk.io) and create an account or sign in to your existing account.
+  
+</Step>
 
-2. **Create or Select a Project**
-   TopK follows an `Organization > Project > Collection` hierarchical structure. Create a new project or use an existing one within your organization.
+<Step title="Create or Select a Project">
+  TopK follows an `Organization > Project > Collection` hierarchical structure.
+  
+  Create a new project or use an existing one within your organization.
+</Step>
 
-3. **Generate an API Key**
-   Follow the TopK [documentation](https://docs.topk.io/installation#api-key) to generate a API key for your project.
+<Step title="Generate an API Key">
+  Follow the TopK [documentation](https://docs.topk.io/installation#api-key) to generate an API key for your project.
+  
+  <Warning>
+  Save your API key securely as you'll need it for your Superlinked configuration.
+  </Warning>
+</Step>
 
-4. **Note your Region**
-   TopK is region-specific. Refer to the TopK documentation for available regions and ensure you use the correct region for your project. Attempting to access collections or documents outside the specified region will result in a region mismatch error.
+<Step title="Note your Region">
+  TopK is region-specific. Refer to the TopK documentation for available regions and ensure you use the correct region for your project.
+  
+  <Warning>
+  Attempting to access collections or documents outside the specified region will result in a region mismatch error.
+  </Warning>
+</Step>
+</Steps>
 
 ## Example app with TopK
 

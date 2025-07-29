@@ -1,0 +1,219 @@
+---
+title: "Query Overview"
+description: "Comprehensive querying components for defining searches, filters, and natural language queries on vector indices"
+icon: magnifying-glass
+---
+
+The Query module provides powerful components for defining and executing searches on your vector indices, including advanced filtering, natural language processing, and flexible query parameterization.
+
+## Core Query Components
+
+Essential components for building and executing queries:
+
+<CardGroup cols={2}>
+  <Card 
+    title="Query" 
+    icon="magnifying-glass" 
+    href="/reference/dsl/query/query"
+  >
+    Core query definition and execution functionality
+  </Card>
+  <Card 
+    title="Query Vector Factory" 
+    icon="industry" 
+    href="/reference/dsl/query/query_vector_factory"
+  >
+    Factory for creating query vectors
+  </Card>
+  <Card 
+    title="Query Clause" 
+    icon="list-check" 
+    href="/reference/dsl/query/query_clause"
+  >
+    Individual query clause definitions and operations
+  </Card>
+  <Card 
+    title="Query Descriptor" 
+    icon="file-text" 
+    href="/reference/dsl/query/query_descriptor"
+  >
+    Query metadata and configuration descriptors
+  </Card>
+</CardGroup>
+
+## Parameter Management
+
+Advanced parameter handling for dynamic queries:
+
+<CardGroup cols={2}>
+  <Card 
+    title="Parameters" 
+    icon="sliders" 
+    href="/reference/dsl/query/param"
+  >
+    Query parameter definitions and management
+  </Card>
+  <Card 
+    title="Typed Parameters" 
+    icon="check-double" 
+    href="/reference/dsl/query/typed_param"
+  >
+    Strongly-typed parameter handling
+  </Card>
+  <Card 
+    title="Clause Parameters" 
+    icon="gear" 
+    href="/reference/dsl/query/clause_params"
+  >
+    Parameters specific to query clauses
+  </Card>
+  <Card 
+    title="Parameter Evaluator" 
+    icon="calculator" 
+    href="/reference/dsl/query/param_evaluator"
+  >
+    Parameter evaluation and processing
+  </Card>
+</CardGroup>
+
+## Natural Language Query (NLQ)
+
+Advanced natural language processing capabilities:
+
+<CardGroup cols={2}>
+  <Card 
+    title="NLQ Handler" 
+    icon="comments" 
+    href="/reference/dsl/query/nlq/nlq_handler"
+  >
+    Natural language query processing and handling
+  </Card>
+  <Card 
+    title="NLQ Parameter Handler" 
+    icon="wand-magic-sparkles" 
+    href="/reference/dsl/query/natural_language_query_param_handler"
+  >
+    Parameter handling for natural language queries
+  </Card>
+  <Card 
+    title="NLQ Suggestions" 
+    icon="lightbulb" 
+    href="/reference/dsl/query/nlq/suggestion/query_suggestion_model"
+  >
+    Query suggestion generation and management
+  </Card>
+  <Card 
+    title="Parameter Filling" 
+    icon="fill" 
+    href="/reference/dsl/query/nlq/param_filler/index"
+  >
+    Automatic parameter filling for NLQ
+  </Card>
+</CardGroup>
+
+## Query Clauses
+
+Specialized clauses for different query operations:
+
+<CardGroup cols={3}>
+  <Card 
+    title="Hard Filter" 
+    icon="filter" 
+    href="/reference/dsl/query/query_clause/hard_filter_clause"
+  >
+    Exact filtering with hard constraints
+  </Card>
+  <Card 
+    title="Looks Like Filter" 
+    icon="eye" 
+    href="/reference/dsl/query/query_clause/looks_like_filter_clause"
+  >
+    Similarity-based filtering
+  </Card>
+  <Card 
+    title="Similar Filter" 
+    icon="copy" 
+    href="/reference/dsl/query/query_clause/similar_filter_clause"
+  >
+    Semantic similarity filtering
+  </Card>
+  <Card 
+    title="Radius Clause" 
+    icon="circle" 
+    href="/reference/dsl/query/query_clause/radius_clause"
+  >
+    Distance-based filtering
+  </Card>
+  <Card 
+    title="Limit Clause" 
+    icon="list-ol" 
+    href="/reference/dsl/query/query_clause/limit_clause"
+  >
+    Result count limitation
+  </Card>
+  <Card 
+    title="Weight by Space" 
+    icon="balance-scale" 
+    href="/reference/dsl/query/query_clause/weight_by_space_clause"
+  >
+    Space-based result weighting
+  </Card>
+</CardGroup>
+
+## Query Processing
+
+Advanced query processing and result handling:
+
+<CardGroup cols={2}>
+  <Card 
+    title="Query Mixin" 
+    icon="puzzle-piece" 
+    href="/reference/dsl/query/query_mixin"
+  >
+    Composable query functionality
+  </Card>
+  <Card 
+    title="Query Weighting" 
+    icon="weight-hanging" 
+    href="/reference/dsl/query/query_weighting"
+  >
+    Result weighting and scoring
+  </Card>
+  <Card 
+    title="Query Filters" 
+    icon="funnel" 
+    href="/reference/dsl/query/query_filters"
+  >
+    Filter management and application
+  </Card>
+  <Card 
+    title="Result Converters" 
+    icon="right-left" 
+    href="/reference/dsl/query/query_result_converter/index"
+  >
+    Query result conversion and formatting
+  </Card>
+</CardGroup>
+
+## Key Features
+
+Query components enable:
+
+- **Flexible Search**: Multiple search patterns from exact matches to semantic similarity
+- **Natural Language**: Process queries written in natural language
+- **Dynamic Parameters**: Runtime parameter binding and evaluation
+- **Advanced Filtering**: Combine multiple filter types for precise results
+- **Result Control**: Comprehensive control over result ranking and formatting
+
+<Tip>
+The Query module supports both programmatic and natural language queries, making it accessible to both developers and end-users while maintaining powerful customization capabilities.
+</Tip>
+
+## Usage Patterns
+
+Common query patterns include:
+
+1. **Semantic Search**: Find content similar in meaning to a query
+2. **Filtered Search**: Combine similarity with exact constraints
+3. **Natural Language Queries**: Process user queries in plain English
+4. **Parameterized Queries**: Use dynamic parameters for reusable query templates 
