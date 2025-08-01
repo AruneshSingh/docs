@@ -1,75 +1,82 @@
 ---
-title: "Clause Params"
+title: "Clause Parameters"
+description: "Parameter classes for defining query clause configurations"
 ---
 
-Module superlinked.framework.dsl.query.clause_params
-====================================================
+Parameter classes that define configuration options for different types of query clauses.
 
-Classes
--------
+## KNNSearchClauseParams
 
-`KNNSearchClauseParams(limit: int | None = None, filters: Sequence[ComparisonOperation[SchemaField]] = <factory>, schema_fields_to_return: Sequence[SchemaField] = <factory>, radius: float | None = None, should_return_index_vector: bool = False)`
-:   KNNSearchClauseParams(limit: 'int | None' = None, filters: 'Sequence[ComparisonOperation[SchemaField]]' = <factory>, schema_fields_to_return: 'Sequence[SchemaField]' = <factory>, radius: 'float | None' = None, should_return_index_vector: 'bool' = False)
+```python
+KNNSearchClauseParams(limit=None, filters=<factory>, schema_fields_to_return=<factory>, radius=None, should_return_index_vector=False)
+```
 
-    ### Instance variables
+### Parameters
 
-    `filters: Sequence[superlinked.framework.common.interface.comparison_operand.ComparisonOperation[superlinked.framework.common.schema.schema_object.SchemaField]]`
-    :
+<ParamField path="limit" type="int | None" default="None">
+Maximum number of results to return.
+</ParamField>
 
-    `limit: int | None`
-    :
+<ParamField path="filters" type="Sequence[ComparisonOperation[SchemaField]]" default="<factory>">
+Sequence of filter operations to apply.
+</ParamField>
 
-    `radius: float | None`
-    :
+<ParamField path="schema_fields_to_return" type="Sequence[SchemaField]" default="<factory>">
+Sequence of schema fields to include in results.
+</ParamField>
 
-    `schema_fields_to_return: Sequence[superlinked.framework.common.schema.schema_object.SchemaField]`
-    :
+<ParamField path="radius" type="float | None" default="None">
+Search radius for distance-based filtering.
+</ParamField>
 
-    `should_return_index_vector: bool`
-    :
+<ParamField path="should_return_index_vector" type="bool" default="False">
+Whether to return the index vector in results.
+</ParamField>
 
-    ### Methods
+### Properties
 
-    `set_params(self, **params: Any) ‑> superlinked.framework.dsl.query.clause_params.KNNSearchClauseParams`
-    :
+<ParamField path="filters" type="Sequence[ComparisonOperation[SchemaField]]">
+The configured filter operations.
+</ParamField>
 
-`MetadataExtractionClauseParams(vector_part_ids: Sequence[str] = <factory>)`
-:   MetadataExtractionClauseParams(vector_part_ids: 'Sequence[str]' = <factory>)
+<ParamField path="limit" type="int | None">
+The configured result limit.
+</ParamField>
 
-    ### Instance variables
+<ParamField path="radius" type="float | None">
+The configured search radius.
+</ParamField>
 
-    `vector_part_ids: Sequence[str]`
-    :
+<ParamField path="schema_fields_to_return" type="Sequence[SchemaField]">
+The configured schema fields to return.
+</ParamField>
 
-`NLQClauseParams(client_config: OpenAIClientConfig | None = None, natural_query: str | None = None, system_prompt: str | None = None)`
-:   NLQClauseParams(client_config: 'OpenAIClientConfig | None' = None, natural_query: 'str | None' = None, system_prompt: 'str | None' = None)
+<ParamField path="should_return_index_vector" type="bool">
+Whether index vectors should be returned.
+</ParamField>
 
-    ### Instance variables
+## ParamEvaluationResult
 
-    `client_config: superlinked.framework.common.nlq.open_ai.OpenAIClientConfig | None`
-    :
+```python
+ParamEvaluationResult(params, query_vectors)
+```
 
-    `natural_query: str | None`
-    :
+### Parameters
 
-    `system_prompt: str | None`
-    :
+<ParamField path="params" type="KNNSearchClauseParams" required>
+The evaluated clause parameters.
+</ParamField>
 
-`QueryVectorClauseParams(weight_by_space: Mapping[Space, float] = <factory>, context_time: int | None = None, query_node_inputs_by_node_id: Mapping[str, list[QueryNodeInput]] = <factory>)`
-:   QueryVectorClauseParams(weight_by_space: 'Mapping[Space, float]' = <factory>, context_time: 'int | None' = None, query_node_inputs_by_node_id: 'Mapping[str, list[QueryNodeInput]]' = <factory>)
+<ParamField path="query_vectors" type="QueryVectors" required>
+The query vectors associated with the parameters.
+</ParamField>
 
-    ### Instance variables
+### Properties
 
-    `context_time: int | None`
-    :
+<ParamField path="params" type="KNNSearchClauseParams">
+The evaluated clause parameters.
+</ParamField>
 
-    `query_node_inputs_by_node_id: Mapping[str, list[superlinked.framework.query.query_node_input.QueryNodeInput]]`
-    :
-
-    `weight_by_space: Mapping[superlinked.framework.dsl.space.space.Space, float]`
-    :
-
-    ### Methods
-
-    `set_params(self, **params: Any) ‑> superlinked.framework.dsl.query.clause_params.QueryVectorClauseParams`
-    :
+<ParamField path="query_vectors" type="QueryVectors">
+The associated query vectors.
+</ParamField>

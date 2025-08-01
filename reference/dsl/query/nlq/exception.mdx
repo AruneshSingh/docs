@@ -1,18 +1,20 @@
 ---
-title: "Exception"
+title: "NLQ Exceptions"
+description: "Exception classes for natural language query processing errors"
 ---
 
-Module superlinked.framework.dsl.query.nlq.exception
-====================================================
+## NLQException
 
-Classes
--------
+```python
+NLQException(*args, **kwargs)
+```
 
-`NLQException(*args, **kwargs)`
-:   Common base class for all non-exit exceptions.
+Common base class for all non-exit exceptions related to natural language query processing.
 
-    ### Ancestors (in MRO)
+### Inheritance
 
-    * superlinked.framework.common.exception.QueryException
-    * builtins.Exception
-    * builtins.BaseException
+**Inheritance Chain**: 
+- `NLQException` 
+- → `QueryException`
+- → `Exception`
+- → `BaseException`

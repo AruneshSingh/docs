@@ -1,32 +1,48 @@
 ---
-title: "Interactive Application"
+title: "InteractiveApp"
+description: "Interactive implementation of the App class for real-time data ingestion and querying"
 ---
 
-Module superlinked.framework.dsl.app.interactive.interactive_app
-================================================================
+## InteractiveApp
 
-Classes
--------
+```python
+InteractiveApp(sources, indices, vector_database, context, init_search_indices=True)
+```
 
-`InteractiveApp(sources: Sequence[superlinked.framework.dsl.source.interactive_source.InteractiveSource], indices: Sequence[superlinked.framework.dsl.index.index.Index], vector_database: superlinked.framework.dsl.storage.vector_database.VectorDatabase, context: superlinked.framework.common.dag.context.ExecutionContext, init_search_indices: bool = True)`
-:   Interactive implementation of the App class.
-    
-    Initialize the InteractiveApp from an InteractiveExecutor.
-    Args:
-        sources (list[InteractiveSource]): List of interactive sources.
-        indices (list[Index]): List of indices.
-        vector_database (VectorDatabase | None): Vector database instance. Defaults to InMemory.
-        context (Mapping[str, Mapping[str, Any]]): Context mapping.
-        init_search_indices (bool): Decides if the search indices need to be created. Defaults to True.
+Interactive implementation of the App class for real-time data ingestion and querying.
 
-    ### Ancestors (in MRO)
+### Parameters
 
-    * superlinked.framework.dsl.app.online.online_app.OnlineApp
-    * superlinked.framework.dsl.app.app.App
-    * abc.ABC
-    * typing.Generic
-    * superlinked.framework.dsl.query.query_mixin.QueryMixin
+<ParamField path="sources" type="Sequence[InteractiveSource]" required>
+List of interactive sources for data ingestion.
+</ParamField>
 
-    ### Descendants
+<ParamField path="indices" type="Sequence[Index]" required>
+List of indices for data retrieval and storage.
+</ParamField>
 
-    * superlinked.framework.dsl.app.in_memory.in_memory_app.InMemoryApp
+<ParamField path="vector_database" type="VectorDatabase" required>
+Vector database instance for managing vector data.
+</ParamField>
+
+<ParamField path="context" type="ExecutionContext" required>
+The execution context providing necessary runtime information.
+</ParamField>
+
+<ParamField path="init_search_indices" type="bool" default="True">
+Whether to initialize search indices during setup.
+</ParamField>
+
+### Inheritance
+
+**Inheritance Chain**: 
+- `InteractiveApp` 
+- → `OnlineApp`
+- → `App`
+- → `ABC`
+- → `Generic`
+- → `QueryMixin`
+
+### Descendants
+
+- [**InMemoryApp**](/reference/dsl/app/in_memory/in_memory_app)

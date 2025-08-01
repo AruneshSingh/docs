@@ -1,46 +1,55 @@
 ---
-title: "Custom Space"
+title: "CustomSpace"
+description: "Space for ingesting custom vectors with L2 normalization and consistent length requirements"
 ---
 
-Module superlinked.framework.dsl.space.custom_space
-===================================================
+CustomSpace is the instrument of ingesting your own vectors into Superlinked. This way you can use your own vectors right away.
 
-Classes
--------
+## Key Requirements
 
-`CustomSpace(vector: superlinked.framework.common.schema.schema_object.FloatList | None | collections.abc.Sequence[superlinked.framework.common.schema.schema_object.FloatList | None], length: int, description: str | None = None)`
-:   CustomSpace is the instrument of ingesting your own vectors into Superlinked.
-    This way you can use your own vectors right away. What you need to know: (you can use numbering too)
-    - vectors need to have the same length
-    - vectors will be L2Norm normalized to ensure weighting makes sense
-    - weighting can be performed (query-time)
-    - you are going to need an FloatList typed SchemaField to supply your data
-    - the FloatList field will be able to parse any Sequence[float | int]
-    
-    Initializes a CustomSpace for vector storage and manipulation within Superlinked.
-    
-    This constructor sets up a space designed for custom vector ingestion, allowing users to specify how these
-    vectors are aggregated and normalized.
-    
-    Args:
-        vector (FloatList | list[FloatList]): The input vector(s) to be stored in the space.
-          This can be a single FloatList SchemaField or a list of those.
-        length (int): The fixed length that all vectors in this space must have. This ensures uniformity and
-          consistency in vector operations.
+- vectors need to have the same length
+- vectors will be L2Norm normalized to ensure weighting makes sense
+- weighting can be performed (query-time)
+- you are going to need an FloatList typed SchemaField to supply your data
+- the FloatList field will be able to parse any Sequence[float | int]
 
-    ### Ancestors (in MRO)
+## Constructor
 
-    * superlinked.framework.dsl.space.space.Space
-    * superlinked.framework.common.space.interface.has_transformation_config.HasTransformationConfig
-    * superlinked.framework.common.interface.has_length.HasLength
-    * typing.Generic
-    * superlinked.framework.dsl.space.has_space_field_set.HasSpaceFieldSet
-    * abc.ABC
+```python
+CustomSpace(vector, length, description=None)
+```
 
-    ### Instance variables
+### Parameters
 
-    `space_field_set: superlinked.framework.dsl.space.space_field_set.SpaceFieldSet`
-    :
+<ParamField path="vector" type="FloatList | list[FloatList]" required>
+The input vector(s) to be stored in the space. This can be a single FloatList SchemaField or a list of those.
+</ParamField>
 
-    `transformation_config: superlinked.framework.common.space.config.transformation_config.TransformationConfig[superlinked.framework.common.data_types.Vector, superlinked.framework.common.data_types.Vector]`
-    :
+<ParamField path="length" type="int" required>
+The fixed length that all vectors in this space must have. This ensures uniformity and consistency in vector operations.
+</ParamField>
+
+<ParamField path="description" type="str | None" default="None">
+Optional description for the custom space.
+</ParamField>
+
+## Inheritance
+
+**Inheritance Chain**: 
+- `CustomSpace` 
+- → `Space`
+- → `HasTransformationConfig` 
+- → `HasLength`
+- → `Generic`
+- → `HasSpaceFieldSet`
+- → `ABC`
+
+## Properties
+
+<ParamField path="space_field_set" type="SpaceFieldSet">
+The space field set for this custom space.
+</ParamField>
+
+<ParamField path="transformation_config" type="TransformationConfig[Vector, Vector]">
+Configuration for transforming custom vectors.
+</ParamField>

@@ -1,38 +1,74 @@
 ---
-title: "Effect With Referenced Schema Object"
+title: "EffectWithReferencedSchemaObject"
+description: "Effect with resolved schema references and event schema context"
 ---
 
-Module superlinked.framework.dsl.index.util.effect_with_referenced_schema_object
-================================================================================
+## EffectWithReferencedSchemaObject
 
-Classes
--------
+```python
+EffectWithReferencedSchemaObject(base_effect, resolved_affected_schema_reference, resolved_affecting_schema_reference, event_schema)
+```
 
-`EffectWithReferencedSchemaObject(base_effect: Effect[AggregationInputT, EmbeddingInputT], resolved_affected_schema_reference: ResolvedSchemaReference, resolved_affecting_schema_reference: ResolvedSchemaReference, event_schema: EventSchemaObject)`
-:   EffectWithReferencedSchemaObject(base_effect: 'Effect[AggregationInputT, EmbeddingInputT]', resolved_affected_schema_reference: 'ResolvedSchemaReference', resolved_affecting_schema_reference: 'ResolvedSchemaReference', event_schema: 'EventSchemaObject')
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="base_effect" type="Effect[AggregationInputT, EmbeddingInputT]" required>
+The base effect that this wraps.
+</ParamField>
 
-    * typing.Generic
+<ParamField path="resolved_affected_schema_reference" type="ResolvedSchemaReference" required>
+The resolved schema reference for the affected schema.
+</ParamField>
 
-    ### Static methods
+<ParamField path="resolved_affecting_schema_reference" type="ResolvedSchemaReference" required>
+The resolved schema reference for the affecting schema.
+</ParamField>
 
-    `from_base_effect(base_effect: Effect, schemas: set[SchemaObject]) ‑> superlinked.framework.dsl.index.util.effect_with_referenced_schema_object.EffectWithReferencedSchemaObject`
-    :
+<ParamField path="event_schema" type="EventSchemaObject" required>
+The event schema context for this effect.
+</ParamField>
 
-    ### Instance variables
+### Inheritance
 
-    `base_effect: superlinked.framework.dsl.index.effect.Effect[~AggregationInputT, ~EmbeddingInputT]`
-    :
+**Inheritance Chain**: 
+- `EffectWithReferencedSchemaObject` 
+- → `Generic`
 
-    `dag_effect: DagEffect`
-    :
+### Properties
 
-    `event_schema: superlinked.framework.common.schema.event_schema_object.EventSchemaObject`
-    :
+<ParamField path="base_effect" type="Effect[AggregationInputT, EmbeddingInputT]">
+The underlying base effect.
+</ParamField>
 
-    `resolved_affected_schema_reference: superlinked.framework.common.dag.resolved_schema_reference.ResolvedSchemaReference`
-    :
+<ParamField path="dag_effect" type="DagEffect">
+The DAG effect representation.
+</ParamField>
 
-    `resolved_affecting_schema_reference: superlinked.framework.common.dag.resolved_schema_reference.ResolvedSchemaReference`
-    :
+<ParamField path="event_schema" type="EventSchemaObject">
+The event schema associated with this effect.
+</ParamField>
+
+<ParamField path="resolved_affected_schema_reference" type="ResolvedSchemaReference">
+The resolved reference for the schema being affected.
+</ParamField>
+
+<ParamField path="resolved_affecting_schema_reference" type="ResolvedSchemaReference">
+The resolved reference for the schema causing the effect.
+</ParamField>
+
+### Static Methods
+
+#### from_base_effect()
+
+```python
+from_base_effect(base_effect, schemas) -> EffectWithReferencedSchemaObject
+```
+
+<ParamField path="base_effect" type="Effect" required>
+The base effect to wrap.
+</ParamField>
+
+<ParamField path="schemas" type="set[SchemaObject]" required>
+The set of schemas to resolve references against.
+</ParamField>
+
+**Returns**: `EffectWithReferencedSchemaObject` - The effect with resolved schema references.

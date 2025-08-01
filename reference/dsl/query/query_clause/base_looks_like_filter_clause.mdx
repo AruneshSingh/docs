@@ -1,34 +1,42 @@
 ---
-title: "Base Looks Like Filter Clause"
+title: "BaseLooksLikeFilterClause"
+description: "Base class for looks like filter clause implementations"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.base_looks_like_filter_clause
-=================================================================================
+## BaseLooksLikeFilterClause
 
-Classes
--------
+```python
+BaseLooksLikeFilterClause(value_param, schema_field)
+```
 
-`BaseLooksLikeFilterClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam], schema_field: IdField)`
-:   BaseLooksLikeFilterClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]], schema_field: 'IdField')
+Base class for implementing looks like filter clauses that perform similarity-based filtering.
 
-    ### Ancestors (in MRO)
+### Parameters
 
-    * superlinked.framework.dsl.query.query_clause.query_clause.NLQCompatible
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * abc.ABC
+<ParamField path="value_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter containing the value to filter by.
+</ParamField>
 
-    ### Descendants
+<ParamField path="schema_field" type="IdField" required>
+The ID field in the schema to compare against.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.looks_like_filter_clause.LooksLikeFilterClause
-    * superlinked.framework.dsl.query.query_clause.looks_like_filter_clause_weights_by_space.LooksLikeFilterClauseWeightBySpace
+### Inheritance
 
-    ### Instance variables
+**Inheritance Chain**: 
+- `BaseLooksLikeFilterClause` 
+- → `NLQCompatible`
+- → `SingleValueParamQueryClause`
+- → `QueryClause`
+- → `ABC`
 
-    `schema_field: superlinked.framework.common.schema.id_field.IdField`
-    :
+### Descendants
 
-    ### Methods
+- `LooksLikeFilterClause`
+- `LooksLikeFilterClauseWeightBySpace`
 
-    `get_altered_query_vector_params(self, query_vector_params: QueryVectorClauseParams, index_node_id: str, query_schema: IdSchemaObject, storage_manager: StorageManager) ‑> superlinked.framework.dsl.query.clause_params.QueryVectorClauseParams`
-    :
+### Properties
+
+<ParamField path="schema_field" type="IdField">
+The ID field used for similarity comparison.
+</ParamField>

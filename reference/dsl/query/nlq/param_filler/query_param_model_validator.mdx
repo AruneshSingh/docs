@@ -1,17 +1,24 @@
 ---
-title: "Query Param Model Validator"
+title: "QueryParamModelValidator"
+description: "Validator for query parameter models in NLQ processing"
 ---
 
-Module superlinked.framework.dsl.query.nlq.param_filler.query_param_model_validator
-===================================================================================
+## QueryParamModelValidator
 
-Classes
--------
+```python
+QueryParamModelValidator()
+```
 
-`QueryParamModelValidator()`
-:   
+### Static Methods
 
-    ### Static methods
+#### build()
 
-    `build(clause_collector: superlinked.framework.dsl.query.nlq.nlq_clause_collector.NLQClauseCollector) ‑> pydantic._internal._decorators.PydanticDescriptorProxy[pydantic._internal._decorators.ModelValidatorDecoratorInfo]`
-    :
+```python
+build(clause_collector) -> PydanticDescriptorProxy[ModelValidatorDecoratorInfo]
+```
+
+<ParamField path="clause_collector" type="NLQClauseCollector" required>
+The clause collector containing query clauses and parameter information.
+</ParamField>
+
+**Returns**: `PydanticDescriptorProxy[ModelValidatorDecoratorInfo]` - A Pydantic model validator for query parameters.

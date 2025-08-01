@@ -1,28 +1,52 @@
 ---
-title: "Radius Clause"
+title: "RadiusClause"
+description: "Query clause for distance-based filtering with radius constraints"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.radius_clause
-=================================================================
+## RadiusClause
 
-Classes
--------
+```python
+RadiusClause(value_param)
+```
 
-`RadiusClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam])`
-:   RadiusClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]])
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="value_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter that specifies the radius value.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * abc.ABC
+### Inheritance
 
-    ### Static methods
+**Inheritance Chain**: 
+- `RadiusClause` 
+- → `SingleValueParamQueryClause`
+- → `QueryClause`
+- → `ABC`
 
-    `from_param(radius: NumericParamType | None) ‑> superlinked.framework.dsl.query.query_clause.radius_clause.RadiusClause`
-    :
+### Static Methods
 
-    ### Methods
+#### from_param()
 
-    `get_altered_knn_search_params(self, knn_search_clause_params: KNNSearchClauseParams) ‑> superlinked.framework.dsl.query.clause_params.KNNSearchClauseParams`
-    :
+```python
+from_param(radius) -> RadiusClause
+```
+
+<ParamField path="radius" type="FloatParamType" required>
+The radius parameter to create the clause from.
+</ParamField>
+
+**Returns**: `RadiusClause` - A new radius clause instance.
+
+### Methods
+
+#### get_altered_knn_search_params()
+
+```python
+get_altered_knn_search_params(knn_search_clause_params) -> KNNSearchClauseParams
+```
+
+<ParamField path="knn_search_clause_params" type="KNNSearchClauseParams" required>
+The KNN search parameters to modify with the radius.
+</ParamField>
+
+**Returns**: `KNNSearchClauseParams` - The modified search parameters with the radius applied.

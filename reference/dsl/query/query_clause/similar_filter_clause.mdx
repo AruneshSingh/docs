@@ -1,52 +1,77 @@
 ---
-title: "Similar Filter Clause"
+title: "SimilarFilterClause"
+description: "Query clause for semantic similarity filtering with custom weights"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.similar_filter_clause
-=========================================================================
+## SimilarFilterClause
 
-Classes
--------
+```python
+SimilarFilterClause(value_param, weight_param, field_set)
+```
 
-`SimilarFilterClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam], weight_param: TypedParam | Evaluated[TypedParam], field_set: SpaceFieldSet)`
-:   SimilarFilterClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]], weight_param: 'TypedParam | Evaluated[TypedParam]', field_set: 'SpaceFieldSet')
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="value_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter that specifies the similarity value to filter by.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.NLQCompatible
-    * abc.ABC
+<ParamField path="weight_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter that specifies the weight for this filter.
+</ParamField>
 
-    ### Static methods
+<ParamField path="field_set" type="SpaceFieldSet" required>
+The space field set that defines the fields for similarity comparison.
+</ParamField>
 
-    `from_param(spaces: Sequence[Space], field_set: SpaceFieldSet, param: ParamType, weight: NumericParamType) ‑> superlinked.framework.dsl.query.query_clause.similar_filter_clause.SimilarFilterClause`
-    :
+### Inheritance
 
-    ### Instance variables
+**Inheritance Chain**: 
+- `SimilarFilterClause` 
+- → `SingleValueParamQueryClause`
+- → `QueryClause`
+- → `NLQCompatible`
+- → `ABC`
 
-    `annotation_by_space_annotation: dict[str, str]`
-    :
+### Properties
 
-    `field_set: superlinked.framework.dsl.space.space_field_set.SpaceFieldSet`
-    :
+<ParamField path="annotation_by_space_annotation" type="dict[str, str]">
+Mapping of space annotations to their corresponding annotations.
+</ParamField>
 
-    `params: Sequence[TypedParam | Evaluated[TypedParam]]`
-    :
+<ParamField path="field_set" type="SpaceFieldSet">
+The space field set used for similarity comparison.
+</ParamField>
 
-    `weight_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]`
-    :
+<ParamField path="nlq_annotations" type="list[NLQAnnotation]">
+List of natural language query annotations for this clause.
+</ParamField>
 
-    ### Methods
+<ParamField path="weight_param" type="TypedParam | Evaluated[TypedParam]">
+The weight parameter for this similarity filter.
+</ParamField>
 
-    `get_allowed_values(self, param: TypedParam | Evaluated[TypedParam]) ‑> set[collections.abc.Sequence[str] | collections.abc.Sequence[float] | PIL.Image.Image | str | int | float | bool | tuple[str | None, str | None] | None]`
-    :
+### Static Methods
 
-    `get_altered_query_vector_params(self, query_vector_params: QueryVectorClauseParams, index_node_id: str, query_schema: IdSchemaObject, storage_manager: StorageManager) ‑> superlinked.framework.dsl.query.clause_params.QueryVectorClauseParams`
-    :
+#### from_param()
 
-    `get_default_value_by_param_name(self) ‑> dict[str, typing.Any]`
-    :
+```python
+from_param(spaces, field_set, param, weight) -> SimilarFilterClause
+```
 
-    `get_weight_param_name_by_space(self) ‑> dict[superlinked.framework.dsl.space.space.Space | None, str]`
-    :
+<ParamField path="spaces" type="Sequence[Space]" required>
+The spaces to apply the similarity filter to.
+</ParamField>
+
+<ParamField path="field_set" type="SpaceFieldSet" required>
+The field set for similarity comparison.
+</ParamField>
+
+<ParamField path="param" type="ParamType" required>
+The parameter defining the similarity value.
+</ParamField>
+
+<ParamField path="weight" type="NumericParamType" required>
+The weight parameter for the filter.
+</ParamField>
+
+**Returns**: `SimilarFilterClause` - A new similar filter clause instance.

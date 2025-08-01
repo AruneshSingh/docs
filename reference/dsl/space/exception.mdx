@@ -1,36 +1,52 @@
 ---
-title: "Exception"
+title: "Space Exceptions"
+description: "Exception classes for space-related errors and validation failures"
 ---
 
-Module superlinked.framework.dsl.space.exception
-================================================
+## InvalidAggregationStrategyException
 
-Classes
--------
+```python
+InvalidAggregationStrategyException(*args, **kwargs)
+```
 
-`InvalidAggregationStrategyException(*args, **kwargs)`
-:   Common base class for all non-exit exceptions.
+Common base class for all non-exit exceptions related to invalid aggregation strategies.
 
-    ### Ancestors (in MRO)
+### Inheritance
 
-    * superlinked.framework.common.exception.ValidationException
-    * builtins.Exception
-    * builtins.BaseException
+**Inheritance Chain**: 
+- `InvalidAggregationStrategyException` 
+- → `ValidationException`
+- → `Exception` 
+- → `BaseException`
 
-`InvalidSpaceParamException(*args, **kwargs)`
-:   Common base class for all non-exit exceptions.
+## InvalidSpaceParamException
 
-    ### Ancestors (in MRO)
+```python
+InvalidSpaceParamException(*args, **kwargs)
+```
 
-    * superlinked.framework.common.exception.ValidationException
-    * builtins.Exception
-    * builtins.BaseException
+Common base class for all non-exit exceptions related to invalid space parameters.
 
-`NoDefaultNodeException(*args, **kwargs)`
-:   Common base class for all non-exit exceptions.
+### Inheritance
 
-    ### Ancestors (in MRO)
+**Inheritance Chain**: 
+- `InvalidSpaceParamException` 
+- → `ValidationException`
+- → `Exception` 
+- → `BaseException`
 
-    * superlinked.framework.common.exception.ValidationException
-    * builtins.Exception
-    * builtins.BaseException
+## NoDefaultNodeException
+
+```python
+NoDefaultNodeException(*args, **kwargs)
+```
+
+Common base class for all non-exit exceptions related to missing default nodes.
+
+### Inheritance
+
+**Inheritance Chain**: 
+- `NoDefaultNodeException` 
+- → `ValidationException`
+- → `Exception` 
+- → `BaseException`

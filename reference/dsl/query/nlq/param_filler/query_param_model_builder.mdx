@@ -1,17 +1,24 @@
 ---
-title: "Query Param Model Builder"
+title: "QueryParamModelBuilder"
+description: "Builder for creating Pydantic models for query parameter validation"
 ---
 
-Module superlinked.framework.dsl.query.nlq.param_filler.query_param_model_builder
-=================================================================================
+## QueryParamModelBuilder
 
-Classes
--------
+```python
+QueryParamModelBuilder()
+```
 
-`QueryParamModelBuilder()`
-:   
+### Static Methods
 
-    ### Static methods
+#### build()
 
-    `build(clause_collector: superlinked.framework.dsl.query.nlq.nlq_clause_collector.NLQClauseCollector) ‑> type[pydantic.main.BaseModel]`
-    :
+```python
+build(clause_collector) -> type[BaseModel]
+```
+
+<ParamField path="clause_collector" type="NLQClauseCollector" required>
+The clause collector containing query clauses and parameter information.
+</ParamField>
+
+**Returns**: `type[BaseModel]` - A dynamically created Pydantic model class for parameter validation.

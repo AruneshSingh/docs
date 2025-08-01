@@ -1,20 +1,42 @@
 ---
-title: "Query Param Value Setter"
+title: "QueryParamValueSetter"
+description: "Utility class for setting and validating query parameter values"
 ---
 
-Module superlinked.framework.dsl.query.query_param_value_setter
-===============================================================
+## QueryParamValueSetter
 
-Classes
--------
+```python
+QueryParamValueSetter()
+```
 
-`QueryParamValueSetter()`
-:   
+### Static Methods
 
-    ### Static methods
+#### set_values()
 
-    `set_values(query_descriptor: QueryDescriptor, params: Mapping[str, ParamInputType | None]) ‑> superlinked.framework.dsl.query.query_descriptor.QueryDescriptor`
-    :
+```python
+set_values(query_descriptor, params) -> QueryDescriptor
+```
 
-    `validate_params(query_descriptor: QueryDescriptor, params_to_set: Mapping[str, Any]) ‑> None`
-    :
+<ParamField path="query_descriptor" type="QueryDescriptor" required>
+The query descriptor to set parameter values on.
+</ParamField>
+
+<ParamField path="params" type="Mapping[str, ParamInputType | None]" required>
+The parameter values to set.
+</ParamField>
+
+**Returns**: `QueryDescriptor` - The updated query descriptor with parameter values set.
+
+#### validate_params()
+
+```python
+validate_params(query_descriptor, params_to_set) -> None
+```
+
+<ParamField path="query_descriptor" type="QueryDescriptor" required>
+The query descriptor to validate parameters against.
+</ParamField>
+
+<ParamField path="params_to_set" type="Mapping[str, Any]" required>
+The parameters to validate.
+</ParamField>

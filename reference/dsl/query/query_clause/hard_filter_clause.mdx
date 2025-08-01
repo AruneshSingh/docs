@@ -1,46 +1,57 @@
 ---
-title: "Hard Filter Clause"
+title: "HardFilterClause"
+description: "Query clause for applying hard filters with exact constraints"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.hard_filter_clause
-======================================================================
+## HardFilterClause
 
-Classes
--------
+```python
+HardFilterClause(value_param, op, operand, group_key)
+```
 
-`HardFilterClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam], op: ComparisonOperationType, operand: SchemaField, group_key: int | None)`
-:   HardFilterClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]], op: 'ComparisonOperationType', operand: 'SchemaField', group_key: 'int | None')
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="value_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter that specifies the filter value.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.NLQCompatible
-    * abc.ABC
+<ParamField path="op" type="ComparisonOperationType" required>
+The comparison operation type for the filter.
+</ParamField>
 
-    ### Static methods
+<ParamField path="operand" type="SchemaField" required>
+The schema field to apply the filter on.
+</ParamField>
 
-    `from_param(operation: ComparisonOperation[SchemaField]) ‑> superlinked.framework.dsl.query.query_clause.hard_filter_clause.HardFilterClause`
-    :
+<ParamField path="group_key" type="int | None" required>
+Optional group key for organizing related filters.
+</ParamField>
 
-    ### Instance variables
+### Inheritance
 
-    `group_key: int | None`
-    :
+**Inheritance Chain**: 
+- `HardFilterClause` 
+- → `SingleValueParamQueryClause`
+- → `QueryClause`
+- → `NLQCompatible`
+- → `ABC`
 
-    `is_type_mandatory_in_nlq: bool`
-    :
+### Properties
 
-    `nlq_annotations: list[NLQAnnotation]`
-    :
+<ParamField path="group_key" type="int | None">
+The group key for organizing related filters.
+</ParamField>
 
-    `op: superlinked.framework.common.interface.comparison_operation_type.ComparisonOperationType`
-    :
+### Static Methods
 
-    `operand: superlinked.framework.common.schema.schema_object.SchemaField`
-    :
+#### from_param()
 
-    ### Methods
+```python
+from_param(operation) -> HardFilterClause
+```
 
-    `get_altered_knn_search_params(self, knn_search_clause_params: KNNSearchClauseParams) ‑> superlinked.framework.dsl.query.clause_params.KNNSearchClauseParams`
-    :
+<ParamField path="operation" type="ComparisonOperation[SchemaField]" required>
+The comparison operation to create the clause from.
+</ParamField>
+
+**Returns**: `HardFilterClause` - A new hard filter clause instance.

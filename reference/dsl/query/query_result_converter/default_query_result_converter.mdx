@@ -1,18 +1,34 @@
 ---
-title: "Default Query Result Converter"
+title: "DefaultQueryResultConverter"
+description: "Default implementation of QueryResultConverter that returns QueryResult objects"
 ---
 
-Module superlinked.framework.dsl.query.query_result_converter.default_query_result_converter
-============================================================================================
+## DefaultQueryResultConverter
 
-Classes
--------
+```python
+DefaultQueryResultConverter()
+```
 
-`DefaultQueryResultConverter()`
-:   Helper class that provides a standard way to create an ABC using
-    inheritance.
+Default implementation of QueryResultConverter that converts internal query results into standard QueryResult objects.
 
-    ### Ancestors (in MRO)
+### Inheritance
 
-    * superlinked.framework.dsl.query.query_result_converter.query_result_converter.QueryResultConverter
-    * abc.ABC
+**Inheritance Chain**: 
+- `DefaultQueryResultConverter` 
+- → `QueryResultConverter`
+- → `ABC`
+- → `Generic`
+
+### Methods
+
+#### convert()
+
+```python
+convert(query_result) -> QueryResult
+```
+
+<ParamField path="query_result" type="InternalQueryResult" required>
+The internal query result to convert.
+</ParamField>
+
+**Returns**: `QueryResult` - The converted query result as a standard QueryResult object.

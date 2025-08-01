@@ -1,44 +1,55 @@
 ---
-title: "NLQ Compatible Clause Handler"
+title: "NLQCompatibleClauseHandler"
+description: "Handler for processing NLQ-compatible query clauses"
 ---
 
-Module superlinked.framework.dsl.query.nlq.nlq_compatible_clause_handler
-========================================================================
+## NLQCompatibleClauseHandler
 
-Classes
--------
+```python
+NLQCompatibleClauseHandler(clause)
+```
 
-`NLQCompatibleClauseHandler(clause: QueryClause)`
-:   NLQCompatibleClauseHandler(clause: 'QueryClause')
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="clause" type="QueryClause" required>
+The query clause to handle for NLQ processing.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.query_clause.NLQCompatible
-    * abc.ABC
+### Inheritance
 
-    ### Static methods
+**Inheritance Chain**: 
+- `NLQCompatibleClauseHandler` 
+- → `NLQCompatible`
+- → `ABC`
 
-    `from_clauses(clauses: Sequence[QueryClause]) ‑> list[superlinked.framework.dsl.query.nlq.nlq_compatible_clause_handler.NLQCompatibleClauseHandler]`
-    :
+### Properties
 
-    ### Instance variables
+<ParamField path="annotation_by_space_annotation" type="dict[str, str]">
+Mapping of space annotations to their corresponding annotation strings.
+</ParamField>
 
-    `annotation_by_space_annotation: dict[str, str]`
-    :
+<ParamField path="clause" type="QueryClause">
+The query clause being handled.
+</ParamField>
 
-    `clause: superlinked.framework.dsl.query.query_clause.query_clause.QueryClause`
-    :
+<ParamField path="nlq_annotations" type="list[NLQAnnotation]">
+List of NLQ annotations associated with this clause handler.
+</ParamField>
 
-    `is_type_mandatory_in_nlq: bool`
-    :
+<ParamField path="params" type="Sequence[TypedParam | Evaluated[TypedParam]]">
+Sequence of parameters used by this clause handler.
+</ParamField>
 
-    `nlq_annotations: list[NLQAnnotation]`
-    :
+### Static Methods
 
-    `nlq_compatible_clause: NLQCompatible`
-    :
+#### from_clauses()
 
-    ### Methods
+```python
+from_clauses(clauses) -> list[NLQCompatibleClauseHandler]
+```
 
-    `get_allowed_values(self, param: TypedParam | Evaluated[TypedParam]) ‑> set[collections.abc.Sequence[str] | collections.abc.Sequence[float] | PIL.Image.Image | str | int | float | bool | tuple[str | None, str | None] | None]`
-    :
+<ParamField path="clauses" type="Sequence[QueryClause]" required>
+The query clauses to create handlers for.
+</ParamField>
+
+**Returns**: `list[NLQCompatibleClauseHandler]` - List of clause handlers for NLQ-compatible clauses.

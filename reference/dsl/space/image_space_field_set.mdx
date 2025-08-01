@@ -1,35 +1,74 @@
 ---
-title: "Image Space Field Set"
+title: "Image Space Field Sets"
+description: "Specialized field set classes for image space configurations"
 ---
 
-Module superlinked.framework.dsl.space.image_space_field_set
-============================================================
+## ImageDescriptionSpaceFieldSet
 
-Classes
--------
+```python
+ImageDescriptionSpaceFieldSet(space, fields, allowed_param_types=None)
+```
 
-`ImageDescriptionSpaceFieldSet(space: superlinked.framework.dsl.space.space.Space, fields: set[superlinked.framework.common.schema.schema_object.SchemaField], allowed_param_types: collections.abc.Sequence[type] | None = None)`
-:   ImageDescriptionSpaceFieldSet(space: superlinked.framework.dsl.space.space.Space, fields: set[superlinked.framework.common.schema.schema_object.SchemaField], allowed_param_types: collections.abc.Sequence[type] | None = None)
+Specialized field set for image spaces that support both image data and descriptions.
 
-    ### Ancestors (in MRO)
+### Parameters
 
-    * superlinked.framework.dsl.space.space_field_set.SpaceFieldSet
-    * typing.Generic
+<ParamField path="space" type="Space" required>
+The space instance this field set belongs to.
+</ParamField>
 
-    ### Instance variables
+<ParamField path="fields" type="set[SchemaField]" required>
+Set of schema fields for this field set.
+</ParamField>
 
-    `input_type: type`
-    :
+<ParamField path="allowed_param_types" type="Sequence[type] | None" default="None">
+Optional sequence of allowed parameter types.
+</ParamField>
 
-`ImageSpaceFieldSet(space: superlinked.framework.dsl.space.space.Space, fields: set[superlinked.framework.common.schema.schema_object.SchemaField], allowed_param_types: collections.abc.Sequence[type] | None = None)`
-:   ImageSpaceFieldSet(space: superlinked.framework.dsl.space.space.Space, fields: set[superlinked.framework.common.schema.schema_object.SchemaField], allowed_param_types: collections.abc.Sequence[type] | None = None)
+### Inheritance
 
-    ### Ancestors (in MRO)
+**Inheritance Chain**: 
+- `ImageDescriptionSpaceFieldSet` 
+- → `SpaceFieldSet`
+- → `Generic`
 
-    * superlinked.framework.dsl.space.space_field_set.SpaceFieldSet
-    * typing.Generic
+### Properties
 
-    ### Instance variables
+<ParamField path="input_type" type="type">
+The input type for this field set.
+</ParamField>
 
-    `input_type: type`
-    :
+## ImageSpaceFieldSet
+
+```python
+ImageSpaceFieldSet(space, fields, allowed_param_types=None)
+```
+
+Standard field set for image spaces handling image data.
+
+### Parameters
+
+<ParamField path="space" type="Space" required>
+The space instance this field set belongs to.
+</ParamField>
+
+<ParamField path="fields" type="set[SchemaField]" required>
+Set of schema fields for this field set.
+</ParamField>
+
+<ParamField path="allowed_param_types" type="Sequence[type] | None" default="None">
+Optional sequence of allowed parameter types.
+</ParamField>
+
+### Inheritance
+
+**Inheritance Chain**: 
+- `ImageSpaceFieldSet` 
+- → `SpaceFieldSet`
+- → `Generic`
+
+### Properties
+
+<ParamField path="input_type" type="type">
+The input type for this field set.
+</ParamField>

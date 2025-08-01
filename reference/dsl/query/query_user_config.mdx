@@ -1,23 +1,38 @@
 ---
-title: "Query User Config"
+title: "QueryUserConfig"
+description: "User configuration options for query execution behavior"
 ---
 
-Module superlinked.framework.dsl.query.query_user_config
-========================================================
+## QueryUserConfig
 
-Classes
--------
+```python
+QueryUserConfig(with_metadata=False, redis_hybrid_policy=None, redis_batch_size=250)
+```
 
-`QueryUserConfig(with_metadata: bool = False, redis_hybrid_policy: str | None = None, redis_batch_size: int | None = 250)`
-:   QueryUserConfig(with_metadata: 'bool' = False, redis_hybrid_policy: 'str | None' = None, redis_batch_size: 'int | None' = 250)
+### Parameters
 
-    ### Instance variables
+<ParamField path="with_metadata" type="bool" default="False">
+Whether to include metadata in query results.
+</ParamField>
 
-    `redis_batch_size: int | None`
-    :
+<ParamField path="redis_hybrid_policy" type="str | None" default="None">
+The Redis hybrid policy configuration.
+</ParamField>
 
-    `redis_hybrid_policy: str | None`
-    :
+<ParamField path="redis_batch_size" type="int | None" default="250">
+The batch size for Redis operations.
+</ParamField>
 
-    `with_metadata: bool`
-    :
+### Properties
+
+<ParamField path="redis_batch_size" type="int | None">
+The configured batch size for Redis operations.
+</ParamField>
+
+<ParamField path="redis_hybrid_policy" type="str | None">
+The configured Redis hybrid policy.
+</ParamField>
+
+<ParamField path="with_metadata" type="bool">
+Whether metadata should be included in query results.
+</ParamField>

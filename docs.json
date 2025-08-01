@@ -147,7 +147,6 @@
                   {
                     "group": "Util",
                     "pages": [
-                      "reference/dsl/index/util/index",
                       "reference/dsl/index/util/event_aggregation_node_util",
                       "reference/dsl/index/util/aggregation_node_util",
                       "reference/dsl/index/util/event_aggregation_effect_group",
@@ -161,7 +160,6 @@
                 "group": "Query",
                 "pages": [
                   "reference/dsl/query/overview",
-                  "reference/dsl/query/index",
                   "reference/dsl/query/query_vector_factory",
                   "reference/dsl/query/natural_language_query_param_handler",
                   "reference/dsl/query/query",
@@ -186,7 +184,6 @@
                   {
                     "group": "Nlq",
                     "pages": [
-                      "reference/dsl/query/nlq/index",
                       "reference/dsl/query/nlq/exception",
                       "reference/dsl/query/nlq/nlq_handler",
                       "reference/dsl/query/nlq/nlq_compatible_clause_handler",
@@ -194,7 +191,6 @@
                       {
                         "group": "Suggestion",
                         "pages": [
-                          "reference/dsl/query/nlq/suggestion/index",
                           "reference/dsl/query/nlq/suggestion/query_suggestions_prompt_builder",
                           "reference/dsl/query/nlq/suggestion/query_suggestion_model"
                         ]
@@ -202,13 +198,11 @@
                       {
                         "group": "Param Filler",
                         "pages": [
-                          "reference/dsl/query/nlq/param_filler/index",
                           "reference/dsl/query/nlq/param_filler/query_param_prompt_builder",
                           "reference/dsl/query/nlq/param_filler/query_param_model_validator_info",
                           "reference/dsl/query/nlq/param_filler/query_param_model_builder",
                           "reference/dsl/query/nlq/param_filler/nlq_annotation",
-                          "reference/dsl/query/nlq/param_filler/query_param_model_validator",
-                          "reference/dsl/query/nlq/param_filler/templates/index"
+                          "reference/dsl/query/nlq/param_filler/query_param_model_validator"
                         ]
                       }
                     ]
@@ -216,7 +210,6 @@
                   {
                     "group": "Query Result Converter",
                     "pages": [
-                      "reference/dsl/query/query_result_converter/index",
                       "reference/dsl/query/query_result_converter/serializable_query_result_converter",
                       "reference/dsl/query/query_result_converter/query_result_converter",
                       "reference/dsl/query/query_result_converter/default_query_result_converter"
@@ -225,7 +218,6 @@
                   {
                     "group": "Query Clause",
                     "pages": [
-                      "reference/dsl/query/query_clause/index",
                       "reference/dsl/query/query_clause/hard_filter_clause",
                       "reference/dsl/query/query_clause/nlq_clause",
                       "reference/dsl/query/query_clause/nlq_system_prompt_clause",
@@ -246,7 +238,6 @@
                   {
                     "group": "Predicate",
                     "pages": [
-                      "reference/dsl/query/predicate/index",
                       "reference/dsl/query/predicate/binary_predicate",
                       "reference/dsl/query/predicate/query_predicate",
                       "reference/dsl/query/predicate/binary_op"
@@ -258,33 +249,28 @@
                 "group": "App",
                 "pages": [
                   "reference/dsl/app/overview",
-                  "reference/dsl/app/index",
                   "reference/dsl/app/app",
                   {
                     "group": "In Memory",
                     "pages": [
-                      "reference/dsl/app/in_memory/index",
                       "reference/dsl/app/in_memory/in_memory_app"
                     ]
                   },
                   {
                     "group": "Interactive",
                     "pages": [
-                      "reference/dsl/app/interactive/index",
                       "reference/dsl/app/interactive/interactive_app"
                     ]
                   },
                   {
                     "group": "Rest",
                     "pages": [
-                      "reference/dsl/app/rest/index",
                       "reference/dsl/app/rest/rest_app"
                     ]
                   },
                   {
                     "group": "Online",
                     "pages": [
-                      "reference/dsl/app/online/index",
                       "reference/dsl/app/online/online_app"
                     ]
                   }
@@ -294,7 +280,6 @@
                 "group": "Storage",
                 "pages": [
                   "reference/dsl/storage/overview",
-                  "reference/dsl/storage/index",
                   "reference/dsl/storage/redis_vector_database",
                   "reference/dsl/storage/in_memory_vector_database",
                   "reference/dsl/storage/topk_vector_database",
@@ -307,7 +292,6 @@
                 "group": "Registry",
                 "pages": [
                   "reference/dsl/registry/overview",
-                  "reference/dsl/registry/index",
                   "reference/dsl/registry/exception",
                   "reference/dsl/registry/superlinked_registry"
                 ]
@@ -316,7 +300,6 @@
                 "group": "Source",
                 "pages": [
                   "reference/dsl/source/overview",
-                  "reference/dsl/source/index",
                   "reference/dsl/source/interactive_source",
                   "reference/dsl/source/data_loader_source",
                   "reference/dsl/source/source",
@@ -329,7 +312,6 @@
                 "group": "Space",
                 "pages": [
                   "reference/dsl/space/overview",
-                  "reference/dsl/space/index",
                   "reference/dsl/space/recency_space",
                   "reference/dsl/space/image_space",
                   "reference/dsl/space/exception",
@@ -348,34 +330,29 @@
                 "group": "Executor",
                 "pages": [
                   "reference/dsl/executor/overview",
-                  "reference/dsl/executor/index",
                   "reference/dsl/executor/exception",
                   "reference/dsl/executor/executor",
                   {
                     "group": "In Memory",
                     "pages": [
-                      "reference/dsl/executor/in_memory/index",
                       "reference/dsl/executor/in_memory/in_memory_executor"
                     ]
                   },
                   {
                     "group": "Query",
                     "pages": [
-                      "reference/dsl/executor/query/index",
                       "reference/dsl/executor/query/query_executor"
                     ]
                   },
                   {
                     "group": "Interactive",
                     "pages": [
-                      "reference/dsl/executor/interactive/index",
                       "reference/dsl/executor/interactive/interactive_executor"
                     ]
                   },
                   {
                     "group": "Rest",
                     "pages": [
-                      "reference/dsl/executor/rest/index",
                       "reference/dsl/executor/rest/rest_descriptor",
                       "reference/dsl/executor/rest/rest_executor",
                       "reference/dsl/executor/rest/rest_configuration",

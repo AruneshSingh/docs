@@ -1,38 +1,62 @@
 ---
-title: "Rest Executor"
+title: "RestExecutor"
+description: "Specialized executor subclass designed to handle REST applications with all necessary configuration parameters"
 ---
 
-Module superlinked.framework.dsl.executor.rest.rest_executor
-============================================================
+The RestExecutor is a specialized subclass of the Executor base class designed to handle REST applications. It encapsulates all necessary parameters for configuring and running a REST-based application.
 
-Classes
--------
+## Constructor
 
-`RestExecutor(sources: Sequence[RestSource | DataLoaderSource], indices: Sequence[Index], queries: Sequence[RestQuery], vector_database: VectorDatabase, endpoint_configuration: RestEndpointConfiguration | None = None, context_data: Mapping[str, Mapping[str, ContextValue]] | None = None, blob_handler_config: BlobHandlerConfig | None = None)`
-:   The RestExecutor is a specialized subclass of the Executor base class designed to handle REST applications.
-    It encapsulates all necessary parameters for configuring and running a REST-based application.
-    
-    Initialize the RestExecutor with the provided parameters.
-    
-    Args:
-        sources (Sequence[RestSource | DataLoaderSource]): Sources, either RestSource or DataLoaderSource.
-        indices (Sequence[Index]): Indices for the RestExecutor.
-        queries (Sequence[RestQuery]): Queries to execute.
-        vector_database (VectorDatabase): Vector database instance.
-        endpoint_configuration (RestEndpointConfiguration | None): REST endpoint configuration. Defaults to None.
-        context_data (Mapping[str, Mapping[str, ContextValue]] | None):
-            Context data for execution. Defaults to None.
+```python
+RestExecutor(sources, indices, queries, vector_database, endpoint_configuration=None, context_data=None, blob_handler_config=None)
+```
 
-    ### Ancestors (in MRO)
+### Parameters
 
-    * superlinked.framework.dsl.executor.executor.Executor
-    * abc.ABC
-    * typing.Generic
+<ParamField path="sources" type="Sequence[RestSource | DataLoaderSource]" required>
+Sources, either RestSource or DataLoaderSource.
+</ParamField>
 
-    ### Methods
+<ParamField path="indices" type="Sequence[Index]" required>
+Indices for the RestExecutor.
+</ParamField>
 
-    `run(self) ‑> superlinked.framework.dsl.app.rest.rest_app.RestApp`
-    :   Run the RestExecutor. It returns an app that will create rest endpoints.
-        
-        Returns:
-            RestApp: An instance of RestApp.
+<ParamField path="queries" type="Sequence[RestQuery]" required>
+Queries to execute.
+</ParamField>
+
+<ParamField path="vector_database" type="VectorDatabase" required>
+Vector database instance.
+</ParamField>
+
+<ParamField path="endpoint_configuration" type="RestEndpointConfiguration | None" default="None">
+REST endpoint configuration. Defaults to None.
+</ParamField>
+
+<ParamField path="context_data" type="Mapping[str, Mapping[str, ContextValue]] | None" default="None">
+Context data for execution. Defaults to None.
+</ParamField>
+
+<ParamField path="blob_handler_config" type="BlobHandlerConfig | None" default="None">
+Blob handler configuration. Defaults to None.
+</ParamField>
+
+## Inheritance
+
+**Inheritance Chain**: 
+- `RestExecutor` 
+- → `Executor`
+- → `ABC` 
+- → `Generic`
+
+## Methods
+
+### run()
+
+```python
+run() -> RestApp
+```
+
+Run the RestExecutor. It returns an app that will create rest endpoints.
+
+**Returns**: An instance of RestApp.

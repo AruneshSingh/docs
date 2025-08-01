@@ -1,17 +1,19 @@
 ---
-title: "Exception"
+title: "Registry Exceptions"
+description: "Exception classes for registry-related errors and validation failures"
 ---
 
-Module superlinked.framework.dsl.registry.exception
-===================================================
+## DuplicateElementException
 
-Classes
--------
+```python
+DuplicateElementException(*args, **kwargs)
+```
 
-`DuplicateElementException(*args, **kwargs)`
-:   Common base class for all non-exit exceptions.
+Common base class for all non-exit exceptions related to duplicate elements in the registry.
 
-    ### Ancestors (in MRO)
+### Inheritance
 
-    * builtins.Exception
-    * builtins.BaseException
+**Inheritance Chain**: 
+- `DuplicateElementException` 
+- → `Exception` 
+- → `BaseException`

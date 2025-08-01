@@ -1,20 +1,38 @@
 ---
-title: "Rest Handler"
+title: "RestHandler"
+description: "Handler for managing REST endpoints and routing for sources and queries"
 ---
 
-Module superlinked.framework.dsl.executor.rest.rest_handler
-===========================================================
+## RestHandler
 
-Classes
--------
+```python
+RestHandler(query_mixin, sources, queries, endpoint_config)
+```
 
-`RestHandler(query_mixin: superlinked.framework.dsl.query.query_mixin.QueryMixin, sources: Sequence[superlinked.framework.dsl.source.rest_source.RestSource], queries: Sequence[superlinked.framework.dsl.executor.rest.rest_configuration.RestQuery], endpoint_config: superlinked.framework.dsl.executor.rest.rest_configuration.RestEndpointConfiguration)`
-:   
+### Parameters
 
-    ### Instance variables
+<ParamField path="query_mixin" type="QueryMixin" required>
+Query mixin providing query functionality.
+</ParamField>
 
-    `path_to_query_map: Mapping[str, superlinked.framework.dsl.executor.rest.rest_configuration.RestQuery]`
-    :
+<ParamField path="sources" type="Sequence[RestSource]" required>
+Sequence of REST sources to handle.
+</ParamField>
 
-    `path_to_source_map: Mapping[str, superlinked.framework.dsl.source.rest_source.RestSource]`
-    :
+<ParamField path="queries" type="Sequence[RestQuery]" required>
+Sequence of REST queries to handle.
+</ParamField>
+
+<ParamField path="endpoint_config" type="RestEndpointConfiguration" required>
+Configuration for REST endpoints.
+</ParamField>
+
+### Properties
+
+<ParamField path="path_to_query_map" type="Mapping[str, RestQuery]">
+Mapping from endpoint paths to their corresponding REST queries.
+</ParamField>
+
+<ParamField path="path_to_source_map" type="Mapping[str, RestSource]">
+Mapping from endpoint paths to their corresponding REST sources.
+</ParamField>

@@ -1,17 +1,32 @@
 ---
-title: "Event Aggregation Node Util"
+title: "EventAggregationNodeUtil"
+description: "Utility class for event aggregation node management and initialization"
 ---
 
-Module superlinked.framework.dsl.index.util.event_aggregation_node_util
-=======================================================================
+## EventAggregationNodeUtil
 
-Classes
--------
+```python
+EventAggregationNodeUtil()
+```
 
-`EventAggregationNodeUtil()`
-:   
+### Static Methods
 
-    ### Static methods
+#### init_event_aggregation_node()
 
-    `init_event_aggregation_node(space: superlinked.framework.dsl.space.space.Space, effect_group: superlinked.framework.dsl.index.util.event_aggregation_effect_group.EventAggregationEffectGroup[~AggregationInputT, ~EmbeddingInputT], effect_modifier: superlinked.framework.common.dag.effect_modifier.EffectModifier) ‑> superlinked.framework.common.dag.event_aggregation_node.EventAggregationNode[~AggregationInputT, ~EmbeddingInputT]`
-    :
+```python
+init_event_aggregation_node(space, effect_group, effect_modifier) -> EventAggregationNode[AggregationInputT, EmbeddingInputT]
+```
+
+<ParamField path="space" type="Space" required>
+The space for the event aggregation node.
+</ParamField>
+
+<ParamField path="effect_group" type="EventAggregationEffectGroup[AggregationInputT, EmbeddingInputT]" required>
+The event aggregation effect group to initialize the node with.
+</ParamField>
+
+<ParamField path="effect_modifier" type="EffectModifier" required>
+The effect modifier to apply during node initialization.
+</ParamField>
+
+**Returns**: `EventAggregationNode[AggregationInputT, EmbeddingInputT]` - The initialized event aggregation node.

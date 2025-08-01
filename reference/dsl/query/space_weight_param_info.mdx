@@ -1,25 +1,44 @@
 ---
-title: "Space Weight Param Info"
+title: "SpaceWeightParamInfo"
+description: "Information and configuration for space weight parameters"
 ---
 
-Module superlinked.framework.dsl.query.space_weight_param_info
-==============================================================
+## SpaceWeightParamInfo
 
-Classes
--------
+```python
+SpaceWeightParamInfo(global_param_name_by_space, param_names_by_space)
+```
 
-`SpaceWeightParamInfo(global_param_name_by_space: Mapping[Space, str], param_names_by_space: Mapping[Space, Sequence[str]])`
-:   SpaceWeightParamInfo(global_param_name_by_space: 'Mapping[Space, str]', param_names_by_space: 'Mapping[Space, Sequence[str]]')
+### Parameters
 
-    ### Static methods
+<ParamField path="global_param_name_by_space" type="Mapping[Space, str]" required>
+Mapping from spaces to their global parameter names.
+</ParamField>
 
-    `from_clauses(clauses: Sequence[QueryClause]) ‑> superlinked.framework.dsl.query.space_weight_param_info.SpaceWeightParamInfo`
-    :
+<ParamField path="param_names_by_space" type="Mapping[Space, Sequence[str]]" required>
+Mapping from spaces to sequences of their parameter names.
+</ParamField>
 
-    ### Instance variables
+### Properties
 
-    `global_param_name_by_space: Mapping[superlinked.framework.dsl.space.space.Space, str]`
-    :
+<ParamField path="global_param_name_by_space" type="Mapping[Space, str]">
+The mapping of spaces to their global parameter names.
+</ParamField>
 
-    `param_names_by_space: Mapping[superlinked.framework.dsl.space.space.Space, Sequence[str]]`
-    :
+<ParamField path="param_names_by_space" type="Mapping[Space, Sequence[str]]">
+The mapping of spaces to their sequences of parameter names.
+</ParamField>
+
+### Static Methods
+
+#### from_clauses()
+
+```python
+from_clauses(clauses) -> SpaceWeightParamInfo
+```
+
+<ParamField path="clauses" type="Sequence[QueryClause]" required>
+The query clauses to extract space weight parameter information from.
+</ParamField>
+
+**Returns**: `SpaceWeightParamInfo` - The extracted space weight parameter information.

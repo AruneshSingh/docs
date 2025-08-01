@@ -1,70 +1,66 @@
 ---
 title: "NLQ Annotation"
+description: "Annotation classes for natural language query parameter filling"
 ---
 
-Module superlinked.framework.dsl.query.nlq.param_filler.nlq_annotation
-======================================================================
+## NLQAnnotation
 
-Classes
--------
+```python
+NLQAnnotation(annotation, annotation_type)
+```
 
-`NLQAnnotation(annotation: str, annotation_type: superlinked.framework.dsl.query.nlq.param_filler.nlq_annotation.NLQAnnotationType)`
-:   NLQAnnotation(annotation: str, annotation_type: superlinked.framework.dsl.query.nlq.param_filler.nlq_annotation.NLQAnnotationType)
+### Parameters
 
-    ### Instance variables
+<ParamField path="annotation" type="str" required>
+The annotation text.
+</ParamField>
 
-    `annotation: str`
-    :
+<ParamField path="annotation_type" type="NLQAnnotationType" required>
+The type of annotation.
+</ParamField>
 
-    `annotation_type: superlinked.framework.dsl.query.nlq.param_filler.nlq_annotation.NLQAnnotationType`
-    :
+### Properties
 
-`NLQAnnotationType(*args, **kwds)`
-:   Create a collection of name/value pairs.
-    
-    Example enumeration:
-    
-    >>> class Color(Enum):
-    ...     RED = 1
-    ...     BLUE = 2
-    ...     GREEN = 3
-    
-    Access them by:
-    
-    - attribute access::
-    
-    >>> Color.RED
-    <Color.RED: 1>
-    
-    - value lookup:
-    
-    >>> Color(1)
-    <Color.RED: 1>
-    
-    - name lookup:
-    
-    >>> Color['RED']
-    <Color.RED: 1>
-    
-    Enumerations can be iterated over, and know how many members they have:
-    
-    >>> len(Color)
-    3
-    
-    >>> list(Color)
-    [<Color.RED: 1>, <Color.BLUE: 2>, <Color.GREEN: 3>]
-    
-    Methods can be added to enumerations, and members can have their own
-    attributes -- see the documentation for details.
+<ParamField path="annotation" type="str">
+The annotation text content.
+</ParamField>
 
-    ### Ancestors (in MRO)
+<ParamField path="annotation_type" type="NLQAnnotationType">
+The type classification of this annotation.
+</ParamField>
 
-    * enum.Enum
+## NLQAnnotationType
 
-    ### Class variables
+```python
+NLQAnnotationType(*args, **kwds)
+```
 
-    `EXACT_VALUE_REQUIRED`
-    :
+Enumeration defining the types of annotations used in natural language query processing.
 
-    `SPACE_AFFECTING`
-    :
+### Inheritance
+
+**Inheritance Chain**: 
+- `NLQAnnotationType` 
+- → `Enum`
+
+### Values
+
+<ParamField path="ALLOWED_VALUES" type="NLQAnnotationType">
+Annotation type for specifying allowed parameter values.
+</ParamField>
+
+<ParamField path="DESCRIPTION" type="NLQAnnotationType">
+Annotation type for providing parameter descriptions.
+</ParamField>
+
+<ParamField path="FIELD_SET" type="NLQAnnotationType">
+Annotation type for defining field sets.
+</ParamField>
+
+<ParamField path="FILTER_TYPE" type="NLQAnnotationType">
+Annotation type for specifying filter types.
+</ParamField>
+
+<ParamField path="TYPE" type="NLQAnnotationType">
+Annotation type for parameter type information.
+</ParamField>

@@ -1,23 +1,24 @@
 ---
-title: "Query Filter Validator"
+title: "QueryFilterValidator"
+description: "Validator for ensuring query filter correctness and compatibility"
 ---
 
-Module superlinked.framework.dsl.query.query_filter_validator
-=============================================================
+## QueryFilterValidator
 
-Classes
--------
+```python
+QueryFilterValidator()
+```
 
-`QueryFilterValidator()`
-:   
+### Static Methods
 
-    ### Static methods
+#### validate()
 
-    `validate_operation_field_is_part_of_schema(comparison_operation: superlinked.framework.common.interface.comparison_operand.ComparisonOperation[superlinked.framework.common.schema.schema_object.SchemaField], schema: superlinked.framework.common.schema.id_schema_object.IdSchemaObject) ‑> None`
-    :
+```python
+validate(query_descriptor) -> None
+```
 
-    `validate_operation_is_supported(comparison_operation: superlinked.framework.common.interface.comparison_operand.ComparisonOperation[superlinked.framework.common.schema.schema_object.SchemaField]) ‑> None`
-    :
+<ParamField path="query_descriptor" type="QueryDescriptor" required>
+The query descriptor to validate.
+</ParamField>
 
-    `validate_operation_operand_type(comparison_operation: superlinked.framework.common.interface.comparison_operand.ComparisonOperation, allow_param: bool) ‑> None`
-    :
+**Raises**: `QueryException` - If validation fails due to incompatible filters or configuration errors.

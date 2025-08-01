@@ -1,39 +1,54 @@
 ---
-title: "Interactive Executor"
+title: "InteractiveExecutor"
+description: "Interactive implementation of the Executor class with optimized vector spaces for search"
 ---
 
-Module superlinked.framework.dsl.executor.interactive.interactive_executor
-==========================================================================
+Interactive implementation of the Executor class. Supply it with the sources through which your data is received, the indices indicating the desired vector spaces, and optionally a vector database. The executor will create the spaces optimized for search.
 
-Classes
--------
+## Constructor
 
-`InteractiveExecutor(sources: InteractiveSourceT | Sequence[InteractiveSourceT], indices: Index | Sequence[Index], vector_database: VectorDatabase | None = None, context_data: Mapping[str, Mapping[str, ContextValue]] | None = None)`
-:   Interactive implementation of the Executor class. Supply it with the sources through which
-    your data is received, the indices indicating the desired vector spaces, and optionally a vector database.
-    The executor will create the spaces optimized for search.
-    
-    Initialize the InteractiveExecutor.
-    Args:
-        sources (list[InteractiveSourceT]): List of interactive sources.
-        indices (list[Index]): List of indices.
-        vector_database: (VectorDatabase | None): Vector database instance. Defaults to InMemoryVectorDatabase.
-        context_data (Mapping[str, Mapping[str, ContextValue]] | None):
-            Context data for execution. Defaults to None.
+```python
+InteractiveExecutor(sources, indices, vector_database=None, context_data=None)
+```
 
-    ### Ancestors (in MRO)
+### Parameters
 
-    * superlinked.framework.dsl.executor.executor.Executor
-    * abc.ABC
-    * typing.Generic
+<ParamField path="sources" type="InteractiveSourceT | Sequence[InteractiveSourceT]" required>
+List of interactive sources.
+</ParamField>
 
-    ### Descendants
+<ParamField path="indices" type="Index | Sequence[Index]" required>
+List of indices.
+</ParamField>
 
-    * superlinked.framework.dsl.executor.in_memory.in_memory_executor.InMemoryExecutor
+<ParamField path="vector_database" type="VectorDatabase | None" default="None">
+Vector database instance. Defaults to InMemoryVectorDatabase.
+</ParamField>
 
-    ### Methods
+<ParamField path="context_data" type="Mapping[str, Mapping[str, ContextValue]] | None" default="None">
+Context data for execution. Defaults to None.
+</ParamField>
 
-    `run(self) ‑> superlinked.framework.dsl.app.interactive.interactive_app.InteractiveApp`
-    :   Run the InteractiveExecutor. It returns an app that can accept queries.
-        Returns:
-            InteractiveApp: An instance of InteractiveApp.
+## Inheritance
+
+**Inheritance Chain**: 
+- `InteractiveExecutor` 
+- → `Executor`
+- → `ABC` 
+- → `Generic`
+
+### Descendants
+
+- [**InMemoryExecutor**](/reference/dsl/executor/in_memory/in_memory_executor)
+
+## Methods
+
+### run()
+
+```python
+run() -> InteractiveApp
+```
+
+Run the InteractiveExecutor. It returns an app that can accept queries.
+
+**Returns**: An instance of InteractiveApp.

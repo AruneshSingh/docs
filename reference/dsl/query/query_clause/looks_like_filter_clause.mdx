@@ -1,44 +1,70 @@
 ---
-title: "Looks Like Filter Clause"
+title: "LooksLikeFilterClause"
+description: "Query clause for ID-based similarity filtering with weighted results"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.looks_like_filter_clause
-============================================================================
+## LooksLikeFilterClause
 
-Classes
--------
+```python
+LooksLikeFilterClause(value_param, schema_field, weight_param)
+```
 
-`LooksLikeFilterClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam], schema_field: IdField, weight_param: TypedParam | Evaluated[TypedParam])`
-:   LooksLikeFilterClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]], schema_field: 'IdField', weight_param: 'TypedParam | Evaluated[TypedParam]')
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="value_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter that specifies the ID value to filter by.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.base_looks_like_filter_clause.BaseLooksLikeFilterClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.NLQCompatible
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * abc.ABC
+<ParamField path="schema_field" type="IdField" required>
+The ID field in the schema to compare against.
+</ParamField>
 
-    ### Static methods
+<ParamField path="weight_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter that specifies the weight for this filter.
+</ParamField>
 
-    `from_param(id_: IdField, id_param: StringParamType, weight: NumericParamType) ‑> superlinked.framework.dsl.query.query_clause.looks_like_filter_clause.LooksLikeFilterClause`
-    :
+### Inheritance
 
-    ### Instance variables
+**Inheritance Chain**: 
+- `LooksLikeFilterClause` 
+- → `BaseLooksLikeFilterClause`
+- → `NLQCompatible`
+- → `SingleValueParamQueryClause`
+- → `QueryClause`
+- → `ABC`
 
-    `nlq_annotations: list[NLQAnnotation]`
-    :
+### Properties
 
-    `params: Sequence[TypedParam | Evaluated[TypedParam]]`
-    :
+<ParamField path="nlq_annotations" type="list[NLQAnnotation]">
+List of natural language query annotations for this clause.
+</ParamField>
 
-    `weight_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]`
-    :
+<ParamField path="schema_field" type="IdField">
+The ID field used for similarity comparison.
+</ParamField>
 
-    ### Methods
+<ParamField path="weight_param" type="TypedParam | Evaluated[TypedParam]">
+The weight parameter for this filter.
+</ParamField>
 
-    `get_default_value_by_param_name(self) ‑> dict[str, typing.Any]`
-    :
+### Static Methods
 
-    `get_weight_param_name_by_space(self) ‑> dict[superlinked.framework.dsl.space.space.Space | None, str]`
-    :
+#### from_param()
+
+```python
+from_param(id_, id_param, weight) -> LooksLikeFilterClause
+```
+
+<ParamField path="id_" type="IdField" required>
+The ID field to filter on.
+</ParamField>
+
+<ParamField path="id_param" type="StringParamType" required>
+The parameter containing the ID value.
+</ParamField>
+
+<ParamField path="weight" type="NumericParamType" required>
+The weight parameter for the filter.
+</ParamField>
+
+**Returns**: `LooksLikeFilterClause` - A new looks like filter clause instance.

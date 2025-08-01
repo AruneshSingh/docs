@@ -1,27 +1,44 @@
 ---
 title: "Binary Predicate"
+description: "Binary predicate classes for query filtering operations"
 ---
 
-Module superlinked.framework.dsl.query.predicate.binary_predicate
-=================================================================
+## BinaryPredicate
 
-Classes
--------
+```python
+BinaryPredicate(left_operand, binary_op, right_operand)
+```
 
-`LooksLikePredicate(left_param: superlinked.framework.common.schema.schema_object.SchemaField, right_param: collections.abc.Sequence[str] | collections.abc.Sequence[float] | PIL.Image.Image | str | int | float | bool | None | tuple[str | None, str | None] | superlinked.framework.dsl.query.param.Param, weight: float | int | superlinked.framework.dsl.query.param.Param)`
-:   QueryPredicate(op: ~OPT, params: list[superlinked.framework.common.schema.schema_object.SchemaField | superlinked.framework.dsl.query.param.Param | collections.abc.Sequence[str] | collections.abc.Sequence[float] | PIL.Image.Image | str | int | float | None | tuple[str | None, str | None]], weight_param: float | int | superlinked.framework.dsl.query.param.Param)
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="left_operand" type="ComparisonOperand" required>
+The left operand of the binary operation.
+</ParamField>
 
-    * superlinked.framework.dsl.query.predicate.binary_predicate.BinaryPredicate
-    * superlinked.framework.dsl.query.predicate.query_predicate.QueryPredicate
-    * typing.Generic
+<ParamField path="binary_op" type="BinaryOp" required>
+The binary operation to perform.
+</ParamField>
 
-`SimilarPredicate(left_param: superlinked.framework.common.schema.schema_object.SchemaField, right_param: collections.abc.Sequence[str] | collections.abc.Sequence[float] | PIL.Image.Image | str | int | float | bool | None | tuple[str | None, str | None] | superlinked.framework.dsl.query.param.Param, weight: float | int | superlinked.framework.dsl.query.param.Param, left_param_node: superlinked.framework.common.dag.node.Node)`
-:   QueryPredicate(op: ~OPT, params: list[superlinked.framework.common.schema.schema_object.SchemaField | superlinked.framework.dsl.query.param.Param | collections.abc.Sequence[str] | collections.abc.Sequence[float] | PIL.Image.Image | str | int | float | None | tuple[str | None, str | None]], weight_param: float | int | superlinked.framework.dsl.query.param.Param)
+<ParamField path="right_operand" type="ComparisonOperand" required>
+The right operand of the binary operation.
+</ParamField>
 
-    ### Ancestors (in MRO)
+### Inheritance
 
-    * superlinked.framework.dsl.query.predicate.binary_predicate.BinaryPredicate
-    * superlinked.framework.dsl.query.predicate.query_predicate.QueryPredicate
-    * typing.Generic
+**Inheritance Chain**: 
+- `BinaryPredicate` 
+- → `QueryPredicate`
+
+### Properties
+
+<ParamField path="binary_op" type="BinaryOp">
+The binary operation type.
+</ParamField>
+
+<ParamField path="left_operand" type="ComparisonOperand">
+The left operand of the operation.
+</ParamField>
+
+<ParamField path="right_operand" type="ComparisonOperand">
+The right operand of the operation.
+</ParamField>

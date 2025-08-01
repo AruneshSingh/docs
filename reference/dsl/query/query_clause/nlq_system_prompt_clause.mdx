@@ -1,28 +1,52 @@
 ---
-title: "NLQ System Prompt Clause"
+title: "NLQSystemPromptClause"
+description: "Query clause for providing system prompts to natural language query processing"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.nlq_system_prompt_clause
-============================================================================
+## NLQSystemPromptClause
 
-Classes
--------
+```python
+NLQSystemPromptClause(value_param)
+```
 
-`NLQSystemPromptClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam])`
-:   NLQSystemPromptClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]])
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="value_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter containing the system prompt text.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * abc.ABC
+### Inheritance
 
-    ### Static methods
+**Inheritance Chain**: 
+- `NLQSystemPromptClause` 
+- → `SingleValueParamQueryClause`
+- → `QueryClause`
+- → `ABC`
 
-    `from_param(system_prompt: StringParamType) ‑> superlinked.framework.dsl.query.query_clause.nlq_system_prompt_clause.NLQSystemPromptClause`
-    :
+### Static Methods
 
-    ### Methods
+#### from_param()
 
-    `get_altered_nql_params(self, nlq_clause_params: NLQClauseParams) ‑> superlinked.framework.dsl.query.clause_params.NLQClauseParams`
-    :
+```python
+from_param(system_prompt) -> NLQSystemPromptClause
+```
+
+<ParamField path="system_prompt" type="StringParamType" required>
+The system prompt parameter for natural language query processing.
+</ParamField>
+
+**Returns**: `NLQSystemPromptClause` - A new NLQ system prompt clause instance.
+
+### Methods
+
+#### get_altered_nql_params()
+
+```python
+get_altered_nql_params(nlq_clause_params) -> NLQClauseParams
+```
+
+<ParamField path="nlq_clause_params" type="NLQClauseParams" required>
+The NLQ clause parameters to modify with the system prompt.
+</ParamField>
+
+**Returns**: `NLQClauseParams` - The modified NLQ parameters with the system prompt applied.

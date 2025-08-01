@@ -1,67 +1,66 @@
 ---
-title: "Etc."
+title: "Typed Parameters"
+description: "Typed parameter handling and conversion utilities for query processing"
 ---
 
-Module superlinked.framework.dsl.query.typed_param
-==================================================
+Typed parameter classes that provide type-safe parameter handling and conversion utilities for query processing.
 
-Classes
--------
+## SchemaFieldToStrConverter
 
-`SchemaFieldToStrConverter()`
-:   Abstract base class for generic types.
-    
-    A generic type is typically declared by inheriting from
-    this class parameterized with one or more type variables.
-    For example, a generic mapping type might be defined as::
-    
-      class Mapping(Generic[KT, VT]):
-          def __getitem__(self, key: KT) -> VT:
-              ...
-          # Etc.
-    
-    This class can then be used as follows::
-    
-      def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -> VT:
-          try:
-              return mapping[key]
-          except KeyError:
-              return default
+```python
+SchemaFieldToStrConverter()
+```
 
-    ### Ancestors (in MRO)
+Abstract base class for converting schema fields to string representations.
 
-    * superlinked.framework.common.interface.type_converter.TypeConverter
-    * typing.Generic
-    * abc.ABC
+### Inheritance
 
-    ### Methods
+**Inheritance Chain**: 
+- `SchemaFieldToStrConverter` 
+- → `Generic`
 
-    `convert(self, base: SchemaField) ‑> str`
-    :
+## TypedParam
 
-`TypedParam(param: Param, valid_param_value_types: Sequence[TypeDescriptor])`
-:   TypedParam(param: 'Param', valid_param_value_types: 'Sequence[TypeDescriptor]')
+```python
+TypedParam(param, required_type)
+```
 
-    ### Static methods
+### Parameters
 
-    `from_unchecked_types(param: Param, valid_param_value_types: Sequence[type]) ‑> superlinked.framework.dsl.query.typed_param.TypedParam`
-    :
+<ParamField path="param" type="Param" required>
+The parameter to be typed.
+</ParamField>
 
-    `init_default(valid_param_value_types: Sequence[type], default: ParamInputType | None = None) ‑> superlinked.framework.dsl.query.typed_param.TypedParam`
-    :
+<ParamField path="required_type" type="type[RequiredT]" required>
+The required type for this parameter.
+</ParamField>
 
-    `init_evaluated(valid_param_value_types: Sequence[type], value: Any) ‑> superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]`
-    :
+### Inheritance
 
-    ### Instance variables
+**Inheritance Chain**: 
+- `TypedParam` 
+- → `Generic`
 
-    `param: superlinked.framework.dsl.query.param.Param`
-    :
+### Properties
 
-    `valid_param_value_types: Sequence[superlinked.framework.common.type_descriptor.TypeDescriptor]`
-    :
+<ParamField path="param" type="Param">
+The underlying parameter object.
+</ParamField>
 
-    ### Methods
+<ParamField path="required_type" type="type[RequiredT]">
+The required type for this parameter.
+</ParamField>
 
-    `evaluate(self, value: Any) ‑> superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]`
-    :
+### Methods
+
+#### get_typed_value()
+
+```python
+get_typed_value(value) -> RequiredT
+```
+
+<ParamField path="value" type="Any" required>
+The value to convert to the required type.
+</ParamField>
+
+**Returns**: `RequiredT` - The value converted to the required type.

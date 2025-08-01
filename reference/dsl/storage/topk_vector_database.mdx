@@ -1,27 +1,44 @@
 ---
-title: "Topk Vector Database"
+title: "TopKVectorDatabase"
+description: "TopK implementation of the VectorDatabase for optimized top-K nearest neighbor retrieval"
 ---
 
-Module superlinked.framework.dsl.storage.topk_vector_database
-=============================================================
+TopK implementation of the VectorDatabase. This class provides a TopK-based vector database connector.
 
-Classes
--------
+## Constructor
 
-`TopKVectorDatabase(api_key: str, region: str, https: bool = True, host: str = 'topk.io', default_query_limit: int = 10)`
-:   TopK implementation of the VectorDatabase.
-    This class provides a TopK-based vector database connector.
-    
-    Initialize the TopKVectorDatabase.
-    Args:
-        api_key (str): The API key for the TopK server.
-        region (str): The region of the TopK server.
-        https (bool): Whether to use HTTPS for the TopK server.
-        host (str): The host of the TopK server.
-        default_query_limit (int): Default vector search limit, set to TopK's default of 10.
+```python
+TopKVectorDatabase(api_key, region, https=True, host="topk.io", default_query_limit=10)
+```
 
-    ### Ancestors (in MRO)
+Initialize the TopKVectorDatabase with API credentials and connection configuration.
 
-    * superlinked.framework.dsl.storage.vector_database.VectorDatabase
-    * abc.ABC
-    * typing.Generic
+### Parameters
+
+<ParamField path="api_key" type="str" required>
+The API key for the TopK server.
+</ParamField>
+
+<ParamField path="region" type="str" required>
+The region of the TopK server.
+</ParamField>
+
+<ParamField path="https" type="bool" default="True">
+Whether to use HTTPS for the TopK server.
+</ParamField>
+
+<ParamField path="host" type="str" default="topk.io">
+The host of the TopK server.
+</ParamField>
+
+<ParamField path="default_query_limit" type="int" default="10">
+Default vector search limit, set to TopK's default of 10.
+</ParamField>
+
+## Inheritance
+
+**Inheritance Chain**: 
+- `TopKVectorDatabase` 
+- → `VectorDatabase`
+- → `ABC` 
+- → `Generic`

@@ -1,34 +1,60 @@
 ---
-title: "Mongo Database Vector Database"
+title: "MongoDBVectorDatabase"
+description: "MongoDB implementation of the VectorDatabase with Atlas Vector Search support"
 ---
 
-Module superlinked.framework.dsl.storage.mongo_db_vector_database
-=================================================================
+MongoDB implementation of the VectorDatabase. This class provides a MongoDB-based vector database connector.
 
-Classes
--------
+## Constructor
 
-`MongoDBVectorDatabase(host: str, db_name: str, cluster_name: str, project_id: str, admin_api_user: str, admin_api_password: str, default_query_limit: int = 10, vector_precision: superlinked.framework.common.precision.Precision = Precision.FLOAT16, **extra_params: Any)`
-:   MongoDB implementation of the VectorDatabase.
-    
-    This class provides a MongoDB-based vector database connector.
-    
-    Initialize the MongoDBVectorDatabase.
-    
-    Args:
-        host (str): The hostname of the MongoDB server.
-        db_name (str): The name of the database.
-        cluster_name (str): The name of the MongoDB cluster.
-        project_id (str): The project ID for MongoDB.
-        admin_api_user (str): The admin API username.
-        admin_api_password (str): The admin API password.
-        default_query_limit (int): Default vector search limit,
-            MongoDB does not have a default for it so setting it to a reasonable number of 10.
-        vector_precision (Precision): Precision to use for storing vectors. Defaults to FLOAT16.
-        **extra_params (Any): Additional parameters for the MongoDB connection.
+```python
+MongoDBVectorDatabase(host, db_name, cluster_name, project_id, admin_api_user, admin_api_password, default_query_limit=10, vector_precision=Precision.FLOAT16, **extra_params)
+```
 
-    ### Ancestors (in MRO)
+Initialize the MongoDBVectorDatabase with connection parameters and configuration.
 
-    * superlinked.framework.dsl.storage.vector_database.VectorDatabase
-    * abc.ABC
-    * typing.Generic
+### Parameters
+
+<ParamField path="host" type="str" required>
+The hostname of the MongoDB server.
+</ParamField>
+
+<ParamField path="db_name" type="str" required>
+The name of the database.
+</ParamField>
+
+<ParamField path="cluster_name" type="str" required>
+The name of the MongoDB cluster.
+</ParamField>
+
+<ParamField path="project_id" type="str" required>
+The project ID for MongoDB.
+</ParamField>
+
+<ParamField path="admin_api_user" type="str" required>
+The admin API username.
+</ParamField>
+
+<ParamField path="admin_api_password" type="str" required>
+The admin API password.
+</ParamField>
+
+<ParamField path="default_query_limit" type="int" default="10">
+Default vector search limit. MongoDB does not have a default for it so setting it to a reasonable number of 10.
+</ParamField>
+
+<ParamField path="vector_precision" type="Precision" default="Precision.FLOAT16">
+Precision to use for storing vectors. Defaults to FLOAT16.
+</ParamField>
+
+<ParamField path="**extra_params" type="Any">
+Additional parameters for the MongoDB connection.
+</ParamField>
+
+## Inheritance
+
+**Inheritance Chain**: 
+- `MongoDBVectorDatabase` 
+- → `VectorDatabase`
+- → `ABC` 
+- → `Generic`

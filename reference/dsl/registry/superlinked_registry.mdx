@@ -1,20 +1,38 @@
 ---
-title: "Superlinked Registry"
+title: "SuperlinkedRegistry"
+description: "Central registry for managing and organizing Superlinked framework executors"
 ---
 
-Module superlinked.framework.dsl.registry.superlinked_registry
-==============================================================
+The `SuperlinkedRegistry` provides centralized management for Superlinked framework executors, enabling registration and retrieval of executor instances.
 
-Classes
--------
+## Constructor
 
-`SuperlinkedRegistry()`
-:   
+```python
+SuperlinkedRegistry()
+```
 
-    ### Static methods
+## Static Methods
 
-    `get_executors() ‑> frozenset[superlinked.framework.dsl.executor.executor.Executor]`
-    :
+### get_executors()
 
-    `register(*items: superlinked.framework.dsl.executor.executor.Executor) ‑> None`
-    :
+```python
+get_executors() -> frozenset[Executor]
+```
+
+Retrieve all registered executors from the registry.
+
+**Returns**: A frozen set containing all registered executor instances.
+
+### register()
+
+```python
+register(*items: Executor) -> None
+```
+
+Register one or more executor instances with the registry.
+
+<ParamField path="*items" type="Executor" required>
+Variable number of executor instances to register with the framework.
+</ParamField>
+
+**Returns**: None

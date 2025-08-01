@@ -1,18 +1,20 @@
 ---
-title: "Exception"
+title: "Executor Exceptions"
+description: "Exception classes for executor-related errors"
 ---
 
-Module superlinked.framework.dsl.executor.exception
-===================================================
+## DuplicateEndpointException
 
-Classes
--------
+```python
+DuplicateEndpointException(*args, **kwargs)
+```
 
-`DuplicateEndpointException(*args, **kwargs)`
-:   Common base class for all non-exit exceptions.
+Common base class for all non-exit exceptions.
 
-    ### Ancestors (in MRO)
+### Inheritance
 
-    * superlinked.framework.common.exception.ValidationException
-    * builtins.Exception
-    * builtins.BaseException
+**Inheritance Chain**: 
+- `DuplicateEndpointException` 
+- → `ValidationException`
+- → `Exception` 
+- → `BaseException`

@@ -1,39 +1,57 @@
 ---
-title: "Select Clause"
+title: "SelectClause"
+description: "Query clause for selecting specific schema fields to return in results"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.select_clause
-=================================================================
+## SelectClause
 
-Classes
--------
+```python
+SelectClause(schema_fields)
+```
 
-`SelectClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam], schema: IdSchemaObject, vector_parts: Sequence[Space])`
-:   SelectClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]], schema: 'IdSchemaObject', vector_parts: 'Sequence[Space]')
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="schema_fields" type="Sequence[SchemaField]" required>
+The schema fields to select for inclusion in query results.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * abc.ABC
+### Inheritance
 
-    ### Static methods
+**Inheritance Chain**: 
+- `SelectClause` 
+- → `QueryClause`
+- → `ABC`
 
-    `from_param(schema: IdSchemaObject, fields: Param | Sequence[str], vector_parts: Sequence[Space]) ‑> superlinked.framework.dsl.query.query_clause.select_clause.SelectClause`
-    :
+### Properties
 
-    ### Instance variables
+<ParamField path="schema_fields" type="Sequence[SchemaField]">
+The collection of schema fields to be returned in query results.
+</ParamField>
 
-    `schema: superlinked.framework.common.schema.id_schema_object.IdSchemaObject`
-    :
+### Static Methods
 
-    `vector_parts: Sequence[superlinked.framework.dsl.space.space.Space]`
-    :
+#### from_param()
 
-    ### Methods
+```python
+from_param(fields) -> SelectClause
+```
 
-    `get_altered_knn_search_params(self, knn_search_clause_params: KNNSearchClauseParams) ‑> superlinked.framework.dsl.query.clause_params.KNNSearchClauseParams`
-    :
+<ParamField path="fields" type="SchemaField | Sequence[SchemaField]" required>
+The field or fields to select.
+</ParamField>
 
-    `get_altered_metadata_extraction_params(self, metadata_extraction_params: MetadataExtractionClauseParams) ‑> superlinked.framework.dsl.query.clause_params.MetadataExtractionClauseParams`
-    :
+**Returns**: `SelectClause` - A new select clause instance.
+
+### Methods
+
+#### get_altered_knn_search_params()
+
+```python
+get_altered_knn_search_params(knn_search_clause_params) -> KNNSearchClauseParams
+```
+
+<ParamField path="knn_search_clause_params" type="KNNSearchClauseParams" required>
+The KNN search parameters to modify with the selected fields.
+</ParamField>
+
+**Returns**: `KNNSearchClauseParams` - The modified search parameters with the selected fields applied.

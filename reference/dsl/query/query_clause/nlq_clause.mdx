@@ -1,33 +1,38 @@
 ---
-title: "NLQ Clause"
+title: "NLQClause"
+description: "Query clause for natural language query processing"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.nlq_clause
-==============================================================
+## NLQClause
 
-Classes
--------
+```python
+NLQClause(nlq_input_param)
+```
 
-`NLQClause(value_param: superlinked.framework.dsl.query.typed_param.TypedParam | superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam], client_config: OpenAIClientConfig)`
-:   NLQClause(value_param: Union[superlinked.framework.dsl.query.typed_param.TypedParam, superlinked.framework.common.interface.evaluated.Evaluated[superlinked.framework.dsl.query.typed_param.TypedParam]], client_config: 'OpenAIClientConfig')
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="nlq_input_param" type="TypedParam | Evaluated[TypedParam]" required>
+The parameter containing the natural language query input.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.single_value_param_query_clause.SingleValueParamQueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * abc.ABC
+### Inheritance
 
-    ### Static methods
+**Inheritance Chain**: 
+- `NLQClause` 
+- → `SingleValueParamQueryClause`
+- → `QueryClause`
+- → `ABC`
 
-    `from_param(natural_query: StringParamType, client_config: OpenAIClientConfig) ‑> superlinked.framework.dsl.query.query_clause.nlq_clause.NLQClause`
-    :
+### Static Methods
 
-    ### Instance variables
+#### from_param()
 
-    `client_config: superlinked.framework.common.nlq.open_ai.OpenAIClientConfig`
-    :
+```python
+from_param(nlq_input) -> NLQClause
+```
 
-    ### Methods
+<ParamField path="nlq_input" type="StrParamType" required>
+The natural language query input parameter.
+</ParamField>
 
-    `get_altered_nql_params(self, nlq_clause_params: NLQClauseParams) ‑> superlinked.framework.dsl.query.clause_params.NLQClauseParams`
-    :
+**Returns**: `NLQClause` - A new natural language query clause instance.

@@ -1,23 +1,38 @@
 ---
-title: "Rest Descriptor"
+title: "RestDescriptor"
+description: "Configuration descriptor for REST endpoints in the executor"
 ---
 
-Module superlinked.framework.dsl.executor.rest.rest_descriptor
-==============================================================
+## RestDescriptor
 
-Classes
--------
+```python
+RestDescriptor(query_path=None, query_descriptor=None, source_path=None)
+```
 
-`RestDescriptor(query_path: str | None = None, query_descriptor: superlinked.framework.dsl.query.query_descriptor.QueryDescriptor | None = None, source_path: str | None = None)`
-:   RestDescriptor(query_path: str | None = None, query_descriptor: superlinked.framework.dsl.query.query_descriptor.QueryDescriptor | None = None, source_path: str | None = None)
+### Parameters
 
-    ### Instance variables
+<ParamField path="query_path" type="str | None" default="None">
+Path configuration for query endpoints.
+</ParamField>
 
-    `query_descriptor: superlinked.framework.dsl.query.query_descriptor.QueryDescriptor | None`
-    :
+<ParamField path="query_descriptor" type="QueryDescriptor | None" default="None">
+Query descriptor instance for defining query behavior.
+</ParamField>
 
-    `query_path: str | None`
-    :
+<ParamField path="source_path" type="str | None" default="None">
+Path configuration for source endpoints.
+</ParamField>
 
-    `source_path: str | None`
-    :
+### Properties
+
+<ParamField path="query_descriptor" type="QueryDescriptor | None">
+The query descriptor associated with this REST descriptor.
+</ParamField>
+
+<ParamField path="query_path" type="str | None">
+The configured query endpoint path.
+</ParamField>
+
+<ParamField path="source_path" type="str | None">
+The configured source endpoint path.
+</ParamField>

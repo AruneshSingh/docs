@@ -1,48 +1,56 @@
 ---
-title: "Weight By Space Clause"
+title: "WeightBySpaceClause"
+description: "Query clause for applying custom weights to different vector spaces"
 ---
 
-Module superlinked.framework.dsl.query.query_clause.weight_by_space_clause
-==========================================================================
+## WeightBySpaceClause
 
-Classes
--------
+```python
+WeightBySpaceClause(space_weight_map=<factory>)
+```
 
-`WeightBySpaceClause(space_weight_map: SpaceWeightMap = <factory>)`
-:   WeightBySpaceClause(space_weight_map: 'SpaceWeightMap' = <factory>)
+### Parameters
 
-    ### Ancestors (in MRO)
+<ParamField path="space_weight_map" type="SpaceWeightMap" default="<factory>">
+Mapping of spaces to their corresponding weight parameters.
+</ParamField>
 
-    * superlinked.framework.dsl.query.query_clause.query_clause.QueryClause
-    * superlinked.framework.dsl.query.query_clause.query_clause.NLQCompatible
-    * abc.ABC
+### Inheritance
 
-    ### Static methods
+**Inheritance Chain**: 
+- `WeightBySpaceClause` 
+- → `QueryClause`
+- → `NLQCompatible`
+- → `ABC`
 
-    `from_params(weight_param_by_space: Mapping[Space, NumericParamType], all_space: Sequence[Space]) ‑> superlinked.framework.dsl.query.query_clause.weight_by_space_clause.WeightBySpaceClause`
-    :
+### Properties
 
-    ### Instance variables
+<ParamField path="annotation_by_space_annotation" type="dict[str, str]">
+Mapping of space annotations to their corresponding annotations.
+</ParamField>
 
-    `annotation_by_space_annotation: dict[str, str]`
-    :
+<ParamField path="params" type="Sequence[TypedParam | Evaluated[TypedParam]]">
+Sequence of parameters used in this clause.
+</ParamField>
 
-    `params: Sequence[TypedParam | Evaluated[TypedParam]]`
-    :
+<ParamField path="space_weight_map" type="SpaceWeightMap">
+The mapping of spaces to their weight parameters.
+</ParamField>
 
-    `space_weight_map: superlinked.framework.dsl.query.query_clause.space_weight_map.SpaceWeightMap`
-    :
+### Static Methods
 
-    ### Methods
+#### from_params()
 
-    `add_missing_space_weight_params(self, all_space: Sequence[Space]) ‑> Self`
-    :
+```python
+from_params(weight_param_by_space, all_space) -> WeightBySpaceClause
+```
 
-    `extend(self, weight_param_by_space: Mapping[Space, NumericParamType], all_space: Sequence[Space]) ‑> Self`
-    :
+<ParamField path="weight_param_by_space" type="Mapping[Space, NumericParamType]" required>
+Mapping of spaces to their weight parameters.
+</ParamField>
 
-    `get_altered_query_vector_params(self, query_vector_params: QueryVectorClauseParams, index_node_id: str, query_schema: IdSchemaObject, storage_manager: StorageManager) ‑> superlinked.framework.dsl.query.clause_params.QueryVectorClauseParams`
-    :
+<ParamField path="all_space" type="Sequence[Space]" required>
+All spaces available for weighting.
+</ParamField>
 
-    `get_space_weight_param_name_by_space(self) ‑> dict[superlinked.framework.dsl.space.space.Space, str]`
-    :
+**Returns**: `WeightBySpaceClause` - A new weight by space clause instance.

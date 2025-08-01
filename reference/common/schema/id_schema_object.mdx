@@ -1,32 +1,48 @@
 ---
-title: "Id Schema Object"
+title: "IdSchemaObject"
+description: "Schema object with required ID field for entity identification"
 ---
 
-Module superlinked.framework.common.schema.id_schema_object
-===========================================================
+## IdSchemaObject
 
-Classes
--------
+```python
+IdSchemaObject(base_cls: type, id_field_name: str)
+```
 
-`IdSchemaObject(base_cls: type, id_field_name: str)`
-:   Schema object with required ID field.
+Schema object with required ID field.
 
-    ### Ancestors (in MRO)
+### Parameters
 
-    * superlinked.framework.common.schema.schema_object.SchemaObject
-    * abc.ABC
+<ParamField path="base_cls" type="type" required>
+The base class for the schema object.
+</ParamField>
 
-    ### Descendants
+<ParamField path="id_field_name" type="str" required>
+Name of the ID field.
+</ParamField>
 
-    * superlinked.framework.common.schema.event_schema_object.EventSchemaObject
-    * superlinked.framework.common.schema.schema.Schema
+### Inheritance
 
-    ### Static methods
+**Inheritance Chain**: 
+- `IdSchemaObject` 
+- → `SchemaObject`
+- → `ABC`
 
-    `get_schema_field_type() ‑> types.UnionType`
-    :
+### Descendants
 
-    ### Instance variables
+- [**EventSchemaObject**](/reference/common/schema/event_schema_object)
+- [**Schema**](/reference/common/schema/schema)
 
-    `id: superlinked.framework.common.schema.id_field.IdField`
-    :
+### Properties
+
+<ParamField path="id" type="IdField">
+The ID field for this schema object.
+</ParamField>
+
+### Static Methods
+
+#### get_schema_field_type()
+
+```python
+get_schema_field_type() -> types.UnionType
+```
