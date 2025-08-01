@@ -378,7 +378,7 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Home",
+          "anchor": "Website",
           "href": "https://superlinked.com",
           "icon": "house"
         },
@@ -405,12 +405,12 @@
     "primary": {
       "type": "button",
       "label": "Try Superlinked",
-      "href": "https://colab.research.google.com/drive/1PuZRVHNLQHfU4JC3fCEKJTNbNBELTorT?usp=sharing"
+      "href": "https://links.superlinked.com/form-sldocs"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/superlinked_",
+      "x": "https://x.com/superlinked",
       "github": "https://github.com/superlinked/superlinked",
       "linkedin": "https://linkedin.com/company/superlinked"
     }
